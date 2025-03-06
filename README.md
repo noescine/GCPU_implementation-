@@ -7,7 +7,7 @@
 
 - Arquitectura **RISC monociclo de 32 bits**.  
 - ALU con soporte para operaciones combinacionales, aritméticas, lógicas, de comparación y desplazamiento.  
-- Operación exclusiva **SARABI2** para el **espejo de bits** (Bit Mirror).  
+- Operación exclusiva **MIRX** para el **espejo de bits** (Bit Mirror).  
 - Diseño modular con bajo consumo energético.  
 - Pipeline monociclo optimizado para ejecución de instrucciones en **un solo ciclo de reloj**.  
 - Preparado para futuras extensiones como FPU (Unidad de Punto Flotante) y manejo de memoria caché.
