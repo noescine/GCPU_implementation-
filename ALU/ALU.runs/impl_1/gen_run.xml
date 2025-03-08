@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tfgg484-2" LaunchTime="1741392951">
+  <File Type="PA-TCL" Name="GPPU.tcl"/>
+  <File Type="REPORTS-TCL" Name="GPPU_reports.tcl"/>
+  <File Type="INIT-TIMING" Name="GPPU_timing_summary_init.rpt"/>
+  <File Type="OPT-DCP" Name="GPPU_opt.dcp"/>
+  <File Type="OPT-DRC" Name="GPPU_drc_opted.rpt"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="GPPU_methodology_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="GPPU.hwdef"/>
+  <File Type="OPT-TIMING" Name="GPPU_timing_summary_opted.rpt"/>
+  <File Type="OPT-RQA-PB" Name="GPPU_rqa_opted.pb"/>
+  <File Type="PWROPT-DCP" Name="GPPU_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="GPPU_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="GPPU_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="GPPU_placed.dcp"/>
+  <File Type="PLACE-IO" Name="GPPU_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="GPPU_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="GPPU_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="GPPU_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="GPPU_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="GPPU_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="GPPU_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="GPPU_timing_summary_placed.rpt"/>
+  <File Type="PLACE-RQA-PB" Name="GPPU_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="GPPU_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="GPPU_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="GPPU_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="GPPU_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="GPPU_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="GPPU_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="GPPU_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="GPPU_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="GPPU_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="GPPU_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="GPPU_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="GPPU_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="GPPU_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="GPPU_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="GPPU_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="GPPU_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="GPPU_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="GPPU_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="GPPU_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="GPPU_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="GPPU_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="GPPU_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="GPPU_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="GPPU_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="GPPU_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="GPPU_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="GPPU_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-RQS-PB" Name="GPPU_rqs_routed.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="GPPU_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="GPPU_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="GPPU_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="GPPU_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="GPPU_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="GPPU_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="GPPU_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="GPPU_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="GPPU.bit"/>
+  <File Type="BG-BIN" Name="GPPU.bin"/>
+  <File Type="BITSTR-MSK" Name="GPPU.msk"/>
+  <File Type="BITSTR-RBT" Name="GPPU.rbt"/>
+  <File Type="BITSTR-NKY" Name="GPPU.nky"/>
+  <File Type="BITSTR-BMM" Name="GPPU_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="GPPU.mmi"/>
+  <File Type="PDI-FILE" Name="GPPU.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="GPPU_boot.pdi"/>
+  <File Type="PL-PDI-FILE" Name="GPPU_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="GPPU.rcfi"/>
+  <File Type="CFI_FILE" Name="GPPU.cfi"/>
+  <File Type="RNPI_FILE" Name="GPPU.rnpi"/>
+  <File Type="NPI_FILE" Name="GPPU.npi"/>
+  <File Type="RBD_FILE" Name="GPPU.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="GPPU.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="GPPU.sysdef"/>
+  <File Type="BG-BGN" Name="GPPU.bgn"/>
+  <File Type="BG-DRC" Name="GPPU.drc"/>
+  <File Type="RDI-RDI" Name="GPPU.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="ROUTE-RQS" Name="GPPU_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="GPPU_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/ALU.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Brch_M.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Cache_L1.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Control_Unit.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Instruction_Memory.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Program_counter.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Uart_programer.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Vizual_32b.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/freqctrl.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/GPPU.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Memory_spi.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="GPPU"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../Documents/HP_LAB_1.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/ALU.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Performance_Explore" Flow="Vivado Implementation 2024"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design">
+      <Option Id="Directive">0</Option>
+    </Step>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design">
+      <Option Id="Directive">0</Option>
+    </Step>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design">
+      <Option Id="Directive">0</Option>
+    </Step>
+    <Step Id="route_design">
+      <Option Id="Directive">0</Option>
+    </Step>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream">
+      <Option Id="BinFile">1</Option>
+    </Step>
+  </Strategy>
+</GenRun>

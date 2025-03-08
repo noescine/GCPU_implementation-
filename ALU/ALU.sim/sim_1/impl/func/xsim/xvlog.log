@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Ciudad Maderas/ALU/ALU.sim/sim_1/impl/func/xsim/GPPU_func_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-311] analyzing module Cache_L1
+INFO: [VRFC 10-311] analyzing module GPPU
+INFO: [VRFC 10-311] analyzing module Instruction_Memory
+INFO: [VRFC 10-311] analyzing module Program_counter
+INFO: [VRFC 10-311] analyzing module Visualizer32B
+INFO: [VRFC 10-311] analyzing module glbl
