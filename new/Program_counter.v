@@ -21,6 +21,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Program_counter (
+    input wire clk,
+    input wire prog_mode,
     input wire RESET,
     input wire CLK,
     input wire [31:0] ALURes,   // Resultado de la ALU
@@ -30,10 +32,13 @@ module Program_counter (
 
     // Inicialización en simulación
     initial Pc = 32'b0;
-
+    reg prev_mod = 0;
     // Bloque secuencial: se actualiza en el flanco positivo del reloj
-    always @(posedge CLK or posedge RESET) begin
+    always @(posedge CLK) begin
         if(RESET) begin
+            Pc <= 32'b0;
+        end
+        else if( prog_mode && !prev_mod )begin //si paso de modo operacional a programacion reinicio a 0
             Pc <= 32'b0;
         end
         else if (NextPCSrc) begin //Branch unit
@@ -41,8 +46,9 @@ module Program_counter (
             Pc <= ALURes;       // Salto condicional
         end
         else begin 
-            Pc <= Pc + 32'd4;   // Ejecución secuencial
+            Pc <= Pc + 32'd4;   // Pasamos a la siguiente instruccion
         end   
+        prev_mod <= prog_mode; //actualizo el estado de programacion
     end
 
 

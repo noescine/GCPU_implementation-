@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 
 module Control_unit(
+    input prog_mode,
     input RESET,               // Señal de reset para inicializar en 0
     input [6:0] OpCode,        // 7 bits de OpCode (indicador de la instrucción)
     input [2:0] Funct3,        // 3 bits de Funct3
@@ -17,7 +18,7 @@ module Control_unit(
 // Ejecutar la lógica en cada flanco de subida del reloj o cuando RESET sea activado
 always @(*) begin
         // Reinicialización de señales en reset
-    if(RESET)begin
+    if(RESET | prog_mode )begin
         ImmSrc <= 3'b000;
         ALUASrc <= 1'b0;
         ALUBSrc <= 1'b0;

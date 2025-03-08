@@ -4,27 +4,27 @@ module GPPU(
     input H_L,
     input kplus,
     input kminus,
+    input rx,
     
-    output N_C_O,
-    output N_ZERO,
-    output N_N_F,
-    output N_O_F,
+    output tx,
+    output [3:0]n_Flags,
     output [5:0] dp_sel,
     output [7:0] OUT_DP
     );
     
-    wire ALUASrc, ALUBSrc, RUWr, NextPCSrc, PRECLOCK, n_reset, V32b, C_O, ZERO, N_F, O_F;
+    wire ALUASrc, ALUBSrc, RUWr, NextPCSrc, PRECLOCK, n_reset, V32b, C_O, ZERO, N_F, O_F, wr_en;
     wire [31:0] DataWr, Pc, AOPB, Inst, RUrs1, RUrs2, DataRd;
+    wire [7:0] data_out;
     wire [4:0] BrOp;
     wire [3:0] ALUOp;
     wire [2:0] ImmSrc;
     wire [1:0] RUDataWrSrc;
 
+    assign n_Flags[0] = ~O_F;
+    assign n_Flags[1] = ~C_O;
+    assign n_Flags[2] = ~ZERO;
+    assign n_Flags[3] = ~N_F;
     assign n_reset = ~RESET;
-    assign N_C_O = ~C_O;
-    assign N_ZERO = ~ZERO;
-    assign N_N_F = ~N_F;
-    assign N_O_F = ~O_F;
 
     reg [19:0] counter2 = 0;
     reg clk_div2 = 0;
@@ -64,13 +64,32 @@ module GPPU(
         .BrOp(BrOp),
         .NextPCSrc(NextPCSrc)
     );
+        // Instanciación del UART_Controller
+    UART_Controller uart_inst (
+        .clk(CLK),             // Reloj del sistema
+        .reset(n_reset),         // Reset global
+        .rx(rx),               // Entrada UART RX
+        .tx(tx),               // Salida UART TX
+        .prog_mode(prog_mode), // Señal de modo programación
+        .wr_en(wr_en),         // Enable de escritura en memoria
+        .data_out(data_out)    // Byte recibido desde el UART
+    );
 
-    Instruction_Memory IM (
-        .addrIM(Pc),
-        .inst(Inst)
+    // Instanciación de la memoria de instrucciones
+    Instruction_Memory #(
+        .MEM_SIZE(5) // Tamaño de la memoria en KiB
+    ) im_inst (
+        .clk(clk),             // Reloj del sistema
+        .wr_en(wr_en),         // Enable de escritura
+        .data_in(data_out),    // Byte recibido desde el UART
+        .prog_mode(prog_mode), // Señal de modo programación
+        .addrIM(Pc),       // Dirección de lectura/escritura
+        .inst(Inst)            // Instrucción leída
     );
 
     Program_counter PC (
+        .clk(CLK),
+        .prog_mode(prog_mode),
         .RESET(n_reset),
         .CLK(PRECLOCK),
         .ALURes(AOPB),
@@ -80,6 +99,7 @@ module GPPU(
 
     Control_unit CU (
         .RESET(n_reset),
+        .prog_mode(prog_mode),
         .OpCode(Inst[6:0]),
         .Funct3(Inst[14:12]),
         .Funct7(Inst[31:25]),
@@ -103,8 +123,9 @@ module GPPU(
         .N_F(N_F)
     );
 
-    Cache_L1 MMC (
-        .CLK(V32b),
+    Register RU (
+        .CLK(CLK),
+        .prog_mode(prog_mode),
         .RESET(n_reset),
         .rs1(Inst[19:15]),
         .rs2(Inst[24:20]),

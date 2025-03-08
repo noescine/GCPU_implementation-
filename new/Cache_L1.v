@@ -1,6 +1,7 @@
-module Cache_L1(
+module Register(
   input CLK,
   input RESET,  // Señal de reset 
+  input prog_mode,
   input [1:0] RUDataWrSrc,
   input [31:0] AOPB,
   input [31:0] DataRd,
@@ -32,7 +33,7 @@ module Cache_L1(
   
   // Asignación continua para lectura de registros rs1 y rs2
   always @(*) begin
-      if(RESET)begin
+      if(RESET | prog_mode)begin
         RUrs1 <= 32'b0;
         RUrs2 <= 32'b0;
       end
@@ -69,10 +70,10 @@ module Cache_L1(
     end
  end     
   // Manejo de escritura en los registros o RAM
-    always @(posedge CLK or posedge RESET) begin
-        if (RESET) begin
+    always @(negedge CLK or posedge RESET) begin
+        if (RESET | prog_mode) begin
           for (i = 0; i < 16; i = i + 1) begin
-            RU[i] <= i;  // Resetear los registros a 0
+            RU[i] <= i;  // Resetear los registros al inicial
           end
         end 
         else if (RUWr && rd != 5'b00000) begin
@@ -98,7 +99,7 @@ module Cache_L1(
   end
   
   always @(*) begin
-      if (RESET) begin
+      if (RESET | prog_mode) begin
         ImmExt = 32'b0;
       end
       else begin
