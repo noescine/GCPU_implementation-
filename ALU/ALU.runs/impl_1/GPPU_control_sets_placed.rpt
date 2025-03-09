@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Fri Mar  7 18:17:41 2025
-| Host         : DESKTOP-T2K4A01 running 64-bit major release  (build 9200)
+| Date         : Sat Mar  8 18:29:27 2025
+| Host         : PC running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file GPPU_control_sets_placed.rpt
 | Design       : GPPU
 | Device       : xc7a35t
@@ -59,10 +59,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |              17 |            7 |
-| No           | No                    | Yes                    |              30 |           11 |
-| No           | Yes                   | No                     |              49 |           20 |
-| Yes          | No                    | No                     |              16 |           10 |
-| Yes          | No                    | Yes                    |             565 |          330 |
+| No           | No                    | Yes                    |              30 |           13 |
+| No           | Yes                   | No                     |              49 |           26 |
+| Yes          | No                    | No                     |              16 |           12 |
+| Yes          | No                    | Yes                    |             565 |          376 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,39 +73,39 @@ Table of Contents
 +----------------+------------------------------------+---------------------------+------------------+----------------+--------------+
 |  Clock Signal  |            Enable Signal           |      Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------+------------------------------------+---------------------------+------------------+----------------+--------------+
-|  CLK_IBUF_BUFG |                                    |                           |                1 |              1 |         1.00 |
 |  PRECLOCK_BUFG |                                    |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[6]_i_1_n_0       |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[5]_i_1_n_0       |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[3]_i_1_n_0       |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[4]_i_1_n_0       |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[2]_i_1_n_0       |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[0]_i_1_n_0       |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[1]_i_1_n_0       |                           |                1 |              1 |         1.00 |
-|  CLK_IBUF_BUFG | uart_inst/rx_data[7]_i_1_n_0       |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[4]                |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG |                                    |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[6]                |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[2]                |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[3]                |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[1]                |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[0]                |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[7]                |                           |                1 |              1 |         1.00 |
+|  CLK_IBUF_BUFG | uart_inst/p_0_in[5]                |                           |                1 |              1 |         1.00 |
 |  CLK_IBUF_BUFG | uart_inst/bit_count[3]_i_1_n_0     | FC/AR[0]                  |                2 |              4 |         2.00 |
-|  CLK_IBUF_BUFG | uart_inst/data_out[7]_i_1_n_0      |                           |                2 |              8 |         4.00 |
+|  CLK_IBUF_BUFG | uart_inst/data_out[7]_i_1_n_0      |                           |                4 |              8 |         2.00 |
 |  clk_div2      |                                    |                           |                5 |             15 |         3.00 |
 |  CLK_IBUF_BUFG | uart_inst/baud_counter[15]_i_1_n_0 | FC/AR[0]                  |                6 |             16 |         2.67 |
 |  CLK_IBUF_BUFG |                                    | p_0_in                    |                5 |             17 |         3.40 |
-|  CLK_IBUF_BUFG |                                    | FC/AR[0]                  |               11 |             30 |         2.73 |
-|  CLK_IBUF_BUFG | uart_inst/rx_valid                 | FC/AR[0]                  |                6 |             32 |         5.33 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_1[0]            | uart_inst/prog_mode_reg_0 |               22 |             32 |         1.45 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_10[0]           | uart_inst/prog_mode_reg_0 |               25 |             32 |         1.28 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_2[0]            | uart_inst/prog_mode_reg_0 |               19 |             32 |         1.68 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_13[0]           | uart_inst/prog_mode_reg_0 |               19 |             32 |         1.68 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_11[0]           | uart_inst/prog_mode_reg_0 |               27 |             32 |         1.19 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_3[0]            | uart_inst/prog_mode_reg_0 |               18 |             32 |         1.78 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_4[0]            | uart_inst/prog_mode_reg_0 |               26 |             32 |         1.23 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_8[0]            | uart_inst/prog_mode_reg_0 |               19 |             32 |         1.68 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_12[0]           | uart_inst/prog_mode_reg_0 |               20 |             32 |         1.60 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_9[0]            | uart_inst/prog_mode_reg_0 |               18 |             32 |         1.78 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_6[0]            | uart_inst/prog_mode_reg_0 |               18 |             32 |         1.78 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_5[0]            | uart_inst/prog_mode_reg_0 |               19 |             32 |         1.68 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_7[0]            | uart_inst/prog_mode_reg_0 |               18 |             32 |         1.78 |
-| ~CLK_IBUF_BUFG | im_inst/E[0]                       | uart_inst/prog_mode_reg_0 |               17 |             32 |         1.88 |
-|  PRECLOCK_BUFG |                                    | PC/Pc[31]_i_1_n_0         |               15 |             32 |         2.13 |
-| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_0[0]            | uart_inst/prog_mode_reg_0 |               18 |             32 |         1.78 |
+|  CLK_IBUF_BUFG |                                    | FC/AR[0]                  |               13 |             30 |         2.31 |
+|  PRECLOCK_BUFG |                                    | PC/Pc[31]_i_1_n_0         |               21 |             32 |         1.52 |
+|  CLK_IBUF_BUFG | uart_inst/rx_valid_reg_n_0         | FC/AR[0]                  |                6 |             32 |         5.33 |
+| ~CLK_IBUF_BUFG | im_inst/E[0]                       | uart_inst/prog_mode_reg_0 |               20 |             32 |         1.60 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_12[0]           | uart_inst/prog_mode_reg_0 |               23 |             32 |         1.39 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_0[0]            | uart_inst/prog_mode_reg_0 |               20 |             32 |         1.60 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_11[0]           | uart_inst/prog_mode_reg_0 |               28 |             32 |         1.14 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_1[0]            | uart_inst/prog_mode_reg_0 |               25 |             32 |         1.28 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_13[0]           | uart_inst/prog_mode_reg_0 |               21 |             32 |         1.52 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_10[0]           | uart_inst/prog_mode_reg_0 |               29 |             32 |         1.10 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_6[0]            | uart_inst/prog_mode_reg_0 |               23 |             32 |         1.39 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_5[0]            | uart_inst/prog_mode_reg_0 |               21 |             32 |         1.52 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_7[0]            | uart_inst/prog_mode_reg_0 |               21 |             32 |         1.52 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_4[0]            | uart_inst/prog_mode_reg_0 |               30 |             32 |         1.07 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_2[0]            | uart_inst/prog_mode_reg_0 |               23 |             32 |         1.39 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_9[0]            | uart_inst/prog_mode_reg_0 |               20 |             32 |         1.60 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_3[0]            | uart_inst/prog_mode_reg_0 |               23 |             32 |         1.39 |
+| ~CLK_IBUF_BUFG | im_inst/im_reg_1_0_8[0]            | uart_inst/prog_mode_reg_0 |               22 |             32 |         1.45 |
 |  CLK_IBUF_BUFG | FC/CUENTITAS                       | FC/AR[0]                  |               13 |             33 |         2.54 |
 +----------------+------------------------------------+---------------------------+------------------+----------------+--------------+
 

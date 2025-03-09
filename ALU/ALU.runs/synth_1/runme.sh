@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Ciudad Maderas/ALU/ALU.runs/synth_1'
+HD_PWD='E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

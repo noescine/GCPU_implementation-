@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Ciudad Maderas/ALU/ALU.runs/synth_1/GPPU.tcl"
+  variable script "E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/synth_1/GPPU.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,32 +56,31 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 5
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tfgg484-2
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {C:/Users/Ciudad Maderas/ALU/ALU.cache/wt} [current_project]
-set_property parent.project_path {C:/Users/Ciudad Maderas/ALU/ALU.xpr} [current_project]
+set_property webtalk.parent_dir {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.cache/wt} [current_project]
+set_property parent.project_path {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo {c:/Users/Ciudad Maderas/ALU/ALU.cache/ip} [current_project]
+set_property ip_output_repo {e:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/ALU.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/Brch_M.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/Cache_L1.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/Control_Unit.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/Instruction_Memory.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/Program_counter.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/Uart_programer.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/Vizual_32b.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/freqctrl.v}
-  {C:/Users/Ciudad Maderas/ALU/ALU.srcs/sources_1/new/GPPU.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/ALU.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Brch_M.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Cache_L1.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Control_Unit.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Instruction_Memory.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Program_counter.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/freqctrl.v}
+  {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -92,12 +91,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/Ciudad Maderas/Documents/HP_LAB_1.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Ciudad Maderas/Documents/HP_LAB_1.xdc}}]
-
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental {C:/Users/Ciudad Maderas/ALU/ALU.srcs/utils_1/imports/synth_1/ALU.dcp}
+read_checkpoint -auto_incremental -incremental {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/utils_1/imports/synth_1/ALU.dcp}
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
