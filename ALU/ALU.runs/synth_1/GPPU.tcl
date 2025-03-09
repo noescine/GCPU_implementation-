@@ -56,6 +56,9 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tfgg484-2
 
@@ -91,6 +94,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc {{E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc}}
+set_property used_in_implementation false [get_files {{E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc}}]
+
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/utils_1/imports/synth_1/ALU.dcp}

@@ -53,6 +53,7 @@ module GPPU(
     Visualizer32B Vbcd (
         .data_bits(DataWr),
         .CLK(V32b),
+        .prog_mode(prog_mode),
         .toggle_btn(H_L),
         .disp_seg(OUT_DP),
         .disp_sel(dp_sel)

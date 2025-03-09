@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Sat Mar  8 18:27:44 2025
+  **** Start of session at: Sun Mar  9 02:14:25 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -20,21 +20,22 @@ Command: synth_design -top GPPU -part xc7a35tfgg484-2 -bufg 7 -directive Perform
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tfgg484-2
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 23696
+INFO: [Synth 8-7075] Helper process launched with PID 29292
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 817.418 ; gain = 475.984
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 993.680 ; gain = 467.180
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-11241] undeclared symbol 'prog_mode', assumed default net type 'wire' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:73]
-INFO: [Synth 8-11241] undeclared symbol 'clk', assumed default net type 'wire' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:82]
+INFO: [Synth 8-11241] undeclared symbol 'prog_mode', assumed default net type 'wire' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:56]
+INFO: [Synth 8-11241] undeclared symbol 'clk', assumed default net type 'wire' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:83]
 INFO: [Synth 8-6157] synthesizing module 'GPPU' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:1]
 INFO: [Synth 8-6157] synthesizing module 'FreqCtrl' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/freqctrl.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'FreqCtrl' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/freqctrl.v:1]
 INFO: [Synth 8-6157] synthesizing module 'Visualizer32B' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v:1]
-INFO: [Synth 8-226] default block is never used [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v:14]
+INFO: [Synth 8-226] default block is never used [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v:15]
 INFO: [Synth 8-6155] done synthesizing module 'Visualizer32B' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v:1]
 INFO: [Synth 8-6157] synthesizing module 'BranchUnit' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Brch_M.v:22]
 INFO: [Synth 8-6155] done synthesizing module 'BranchUnit' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Brch_M.v:22]
@@ -52,10 +53,9 @@ INFO: [Synth 8-6155] done synthesizing module 'ALU' (0#1) [E:/dardi/Nueva carpet
 INFO: [Synth 8-6157] synthesizing module 'Register' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Cache_L1.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'Register' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Cache_L1.v:1]
 INFO: [Synth 8-6155] done synthesizing module 'GPPU' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:1]
-WARNING: [Synth 8-7137] Register data_out_reg in module UART_Controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:49]
-WARNING: [Synth 8-7137] Register rx_data_reg in module UART_Controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:49]
+WARNING: [Synth 8-7137] Register data_out_reg in module UART_Controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:63]
 WARNING: [Synth 8-3848] Net DataRd in module/entity GPPU does not have driver. [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:16]
-WARNING: [Synth 8-3848] Net clk in module/entity GPPU does not have driver. [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:82]
+WARNING: [Synth 8-3848] Net clk in module/entity GPPU does not have driver. [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:83]
 WARNING: [Synth 8-7129] Port Inst[6] in module Register is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Inst[5] in module Register is either unconnected or has no load
 WARNING: [Synth 8-7129] Port Inst[4] in module Register is either unconnected or has no load
@@ -73,37 +73,69 @@ WARNING: [Synth 8-7129] Port Funct7[1] in module Control_unit is either unconnec
 WARNING: [Synth 8-7129] Port Funct7[0] in module Control_unit is either unconnected or has no load
 WARNING: [Synth 8-7129] Port clk in module Program_counter is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 928.410 ; gain = 586.977
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1106.359 ; gain = 579.859
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 928.410 ; gain = 586.977
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1106.359 ; gain = 579.859
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1106.359 ; gain = 579.859
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1106.359 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc]
+Finished Parsing XDC File [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/GPPU_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/GPPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1198.988 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1198.988 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1198.988 ; gain = 672.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tfgg484-2
 ---------------------------------------------------------------------------------
-INFO: [Device 21-403] Loading part xc7a35tfgg484-2
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:09 . Memory (MB): peak = 928.410 ; gain = 586.977
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1198.988 ; gain = 672.488
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:15 . Memory (MB): peak = 1198.988 ; gain = 672.488
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3971] The signal "Instruction_Memory:/im_reg" was recognized as a true dual port RAM template.
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:10 . Memory (MB): peak = 928.410 ; gain = 586.977
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1198.988 ; gain = 672.488
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input   33 Bit       Adders := 1     
-	   2 Input   32 Bit       Adders := 3     
+	   2 Input   32 Bit       Adders := 4     
 	   3 Input   32 Bit       Adders := 1     
 	   2 Input   27 Bit       Adders := 1     
 	   2 Input   25 Bit       Adders := 1     
 	   2 Input   17 Bit       Adders := 1     
-	   2 Input   16 Bit       Adders := 2     
+	   2 Input   16 Bit       Adders := 1     
 	   2 Input   13 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 2     
 	   2 Input    3 Bit       Adders := 1     
 +---XORs : 
@@ -128,13 +160,14 @@ Detailed RTL Component Info :
 	   2 Input   32 Bit        Muxes := 8     
 	   4 Input   32 Bit        Muxes := 1     
 	   2 Input   25 Bit        Muxes := 1     
-	   2 Input   16 Bit        Muxes := 3     
-	   2 Input    8 Bit        Muxes := 5     
-	   2 Input    7 Bit        Muxes := 2     
+	   2 Input   16 Bit        Muxes := 4     
+	   2 Input    8 Bit        Muxes := 4     
+	   2 Input    7 Bit        Muxes := 3     
 	   7 Input    6 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 8     
+	   2 Input    6 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 11    
 	   2 Input    3 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 35    
+	   2 Input    1 Bit        Muxes := 34    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -147,7 +180,6 @@ BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
@@ -181,11 +213,11 @@ WARNING: [Synth 8-7129] Port Funct7[1] in module Control_unit is either unconnec
 WARNING: [Synth 8-7129] Port Funct7[0] in module Control_unit is either unconnected or has no load
 WARNING: [Synth 8-7129] Port clk in module Program_counter is either unconnected or has no load
 INFO: [Synth 8-3971] The signal "im_inst/im_reg" was recognized as a true dual port RAM template.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'uart_inst/tx_start_reg/Q' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:107]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:107]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:107]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'uart_inst/tx_start_reg/Q' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:121]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:121]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:121]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:48 . Memory (MB): peak = 1173.645 ; gain = 832.211
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:38 . Memory (MB): peak = 1205.992 ; gain = 679.492
 ---------------------------------------------------------------------------------
  Sort Area is  AOPB3_0 : 0 0 : 3101 5879 : Used 1 time 0
  Sort Area is  AOPB3_0 : 0 1 : 2778 5879 : Used 1 time 0
@@ -213,12 +245,17 @@ Note: The table above is a preliminary report that shows the DSPs inferred at th
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
-No constraint files found.
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:47 . Memory (MB): peak = 1364.809 ; gain = 838.309
+---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:51 . Memory (MB): peak = 1173.645 ; gain = 832.211
+Finished Timing Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:57 . Memory (MB): peak = 1465.223 ; gain = 938.723
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -241,7 +278,7 @@ INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_2_1 (implemented
 INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:53 . Memory (MB): peak = 1174.684 ; gain = 833.250
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:01:00 . Memory (MB): peak = 1470.379 ; gain = 943.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -259,37 +296,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1325.086 ; gain = 983.652
+Finished IO Insertion : Time (s): cpu = 00:00:38 ; elapsed = 00:01:03 . Memory (MB): peak = 1620.520 ; gain = 1094.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1325.086 ; gain = 983.652
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:38 ; elapsed = 00:01:03 . Memory (MB): peak = 1620.520 ; gain = 1094.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1325.086 ; gain = 983.652
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:38 ; elapsed = 00:01:04 . Memory (MB): peak = 1620.520 ; gain = 1094.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1325.086 ; gain = 983.652
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:38 ; elapsed = 00:01:04 . Memory (MB): peak = 1620.520 ; gain = 1094.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1326.082 ; gain = 984.648
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:38 ; elapsed = 00:01:04 . Memory (MB): peak = 1622.480 ; gain = 1095.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1326.082 ; gain = 984.648
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:38 ; elapsed = 00:01:04 . Memory (MB): peak = 1622.480 ; gain = 1095.980
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -316,60 +353,46 @@ Report Cell Usage:
 |      |Cell     |Count |
 +------+---------+------+
 |1     |BUFG     |     2|
-|2     |CARRY4   |   394|
+|2     |CARRY4   |   390|
 |3     |DSP48E1  |     3|
-|4     |LUT1     |   103|
-|5     |LUT2     |   172|
-|6     |LUT3     |  1112|
-|7     |LUT4     |   267|
-|8     |LUT5     |   153|
-|9     |LUT6     |   910|
-|10    |MUXF7    |   151|
-|11    |MUXF8    |    56|
+|4     |LUT1     |    41|
+|5     |LUT2     |   165|
+|6     |LUT3     |  1085|
+|7     |LUT4     |   261|
+|8     |LUT5     |   186|
+|9     |LUT6     |   869|
+|10    |MUXF7    |   143|
+|11    |MUXF8    |    71|
 |12    |RAMB36E1 |     6|
-|13    |FDCE     |   582|
+|13    |FDCE     |   549|
 |14    |FDPE     |    45|
-|15    |FDRE     |    76|
+|15    |FDRE     |   102|
 |16    |IBUF     |     6|
 |17    |OBUF     |    19|
 +------+---------+------+
-
-Report Instance Areas: 
-+------+------------+-------------------+------+
-|      |Instance    |Module             |Cells |
-+------+------------+-------------------+------+
-|1     |top         |                   |  4057|
-|2     |  ALU       |ALU                |  1334|
-|3     |  RU        |Register           |   944|
-|4     |  FC        |FreqCtrl           |   223|
-|5     |  PC        |Program_counter    |    66|
-|6     |  Vbcd      |Visualizer32B      |    29|
-|7     |  im_inst   |Instruction_Memory |  1276|
-|8     |  uart_inst |UART_Controller    |   131|
-+------+------------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1326.082 ; gain = 984.648
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:38 ; elapsed = 00:01:04 . Memory (MB): peak = 1622.480 ; gain = 1095.980
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 3 critical warnings and 37 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1326.082 ; gain = 984.648
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:57 . Memory (MB): peak = 1326.082 ; gain = 984.648
+Synthesis finished with 0 errors, 3 critical warnings and 17 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:33 ; elapsed = 00:01:02 . Memory (MB): peak = 1622.480 ; gain = 1003.352
+Synthesis Optimization Complete : Time (s): cpu = 00:00:38 ; elapsed = 00:01:04 . Memory (MB): peak = 1622.480 ; gain = 1095.980
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1339.152 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 610 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1631.688 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 613 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1451.402 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1635.352 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: d3bb4001
+Synth Design complete | Checksum: a2da0803
 INFO: [Common 17-83] Releasing license: Synthesis
-49 Infos, 37 Warnings, 3 Critical Warnings and 0 Errors encountered.
+54 Infos, 36 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:01:01 . Memory (MB): peak = 1451.402 ; gain = 1116.188
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:01:10 . Memory (MB): peak = 1635.352 ; gain = 1299.574
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1451.402 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1635.352 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/synth_1/GPPU.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file GPPU_utilization_synth.rpt -pb GPPU_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Mar  8 18:28:51 2025...
+INFO: [Common 17-206] Exiting Vivado at Sun Mar  9 02:15:38 2025...

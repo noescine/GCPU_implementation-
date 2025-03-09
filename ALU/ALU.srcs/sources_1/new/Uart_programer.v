@@ -27,40 +27,56 @@ module UART_Controller (
     reg [15:0] tx_counter = 0;
     reg sending = 0;
 
+// UART RX (8N1, sin paridad)
     // UART RX (8N1, sin paridad)
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            receiving <= 0;
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        receiving   <= 0;
+        baud_counter <= 0;
+        bit_count   <= 0;
+        rx_valid    <= 0;
+        rx_data     <= 8'b0;
+    end 
+    else begin
+        if (!receiving && rx == 0) begin
+            // Detecta el bit de inicio y sincroniza el muestreo en el centro del primer bit de datos
+            receiving   <= 1;
             baud_counter <= 0;
-            bit_count <= 0;
-            rx_valid <= 0;
-        end
-        else if (!receiving && rx == 0) begin
-            receiving <= 1;
-            baud_counter <= BAUD_TICK / 2;
-            bit_count <= 0;
-        end
+            bit_count   <= 0;  // Inicia en 0 porque el bit de inicio es lo primero que se recibe
+        end 
         else if (receiving) begin
-            if (baud_counter == BAUD_TICK) begin
-                baud_counter <= 0;
-                if (bit_count == 8) begin
-                    rx_valid <= 1;
-                    receiving <= 0;                        
-                    data_out <= rx_data;
-                end 
-                else begin
-                    rx_data[bit_count] <= rx;
-                    bit_count <= bit_count + 1;
-                end
-            end else begin
-                baud_counter <= baud_counter + 1;
-                rx_valid <= 0;
+            // Reiniciar el contador de baudios solo al final del ciclo de bit
+            if (baud_counter >= BAUD_TICK - 1) begin
+                baud_counter <= 0; 
             end
+            else begin
+                baud_counter <= baud_counter + 1; // Incrementar el baud_counter siempre que este recibiendo
+            end
+
+            if (baud_counter == (BAUD_TICK / 2)) begin  // Muestreo SOLO en el centro del bit
+                if (bit_count >= 1 && bit_count <= 8) begin // Registrar los bits de datos si es mayor que 0
+                    rx_data[bit_count - 1] <= rx; // Guardar el bit en el lugar correcto
+                end
+                bit_count <= bit_count + 1;  // Avanzar al siguiente bit
+                if (bit_count >= 9) begin  // Si ya hemos recibido todos los bits, valida la recepción
+                    rx_valid  <= 1;      // activa rx_valid por un ciclo
+                    data_out  <= rx_data;
+                    receiving <= 0;     // Termina la recepción
+                    bit_count <= 0;
+                    baud_counter <= 0;
+                end
+            end
+        end 
+        else begin
+            
+            rx_valid <= 0; // Se limpia un ciclo después donde no hay recepción
         end
     end
+end
+
 
     // Control de Modo Programación y Escritura en Memoria
-    always @(posedge clk or posedge reset) begin
+    always @(posedge clk) begin
         if (reset) begin
             prog_mode <= 0;
             wr_en <= 0;
@@ -72,30 +88,28 @@ module UART_Controller (
             wr_en <= 0;
             tx_start <= 0;
             tx_data <= 8'b0;
-
+                // Detectar secuencia de programación
             if (rx_valid) begin
                 seq_buffer <= {seq_buffer[23:0], rx_data};
-
-                // Detectar secuencia de programación
-                if (seq_buffer == seq_prog) begin
-                    prog_mode <= 1; // Activar modo programación
-                    tx_start <= 1;  // Iniciar transmisión de "S"
-                    tx_data <= "S";
-                end
-                else if (prog_mode) begin
-                    // Detectar secuencia de terminación
-                    if (seq_buffer == seq_end) begin
-                        prog_mode <= 0; // Desactivar modo programación
-                        tx_start <= 1;  // Iniciar transmisión de "E"
-                        tx_data <= "E";
-                    end
-                    else begin
-                        // Escribir en memoria solo si estamos en modo programación
-                        // y no se detectó una secuencia especial en este ciclo
-                        wr_en <= 1; // Habilitar escritura en memoria
-                    end
-                end
             end
+            if (seq_buffer == seq_prog) begin
+                prog_mode <= 1; // Activar modo programación
+                tx_start <= 1;  // Iniciar transmisión de "S"
+                tx_data <= "S";
+            end
+            else if (prog_mode) begin
+                // Detectar secuencia de terminación
+                if (seq_buffer == seq_end) begin
+                    prog_mode <= 0; // Desactivar modo programación
+                    tx_start <= 1;  // Iniciar transmisión de "E"
+                    tx_data <= "E";
+                end
+                else begin
+                    // Escribir en memoria solo si estamos en modo programación
+                    // y no se detectó una secuencia especial en este ciclo
+                    wr_en <= 1; // Habilitar escritura en memoria
+                end
+            end        
         end
     end
 

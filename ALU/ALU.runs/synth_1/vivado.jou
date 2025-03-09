@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sat Mar  8 18:27:44 2025
-# Process ID         : 23312
+# Start of session at: Sun Mar  9 02:14:25 2025
+# Process ID         : 19264
 # Current directory  : E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/synth_1
 # Command line       : vivado.exe -log GPPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source GPPU.tcl
 # Log file           : E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/synth_1/GPPU.vds
@@ -19,6 +19,6 @@
 # Host memory        : 34129 MB
 # Swap memory        : 5100 MB
 # Total Virtual      : 39229 MB
-# Available Virtual  : 22212 MB
+# Available Virtual  : 16911 MB
 #-----------------------------------------------------------
 source GPPU.tcl -notrace
