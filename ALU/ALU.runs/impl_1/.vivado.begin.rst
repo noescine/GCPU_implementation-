@@ -43,3 +43,18 @@
     <Process Command="vivado.bat" Owner="dardi" Host="PC" Pid="27820" HostCore="12" HostMemory="034129068032">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="dardi" Host="PC" Pid="31956" HostCore="12" HostMemory="034129068032">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="dardi" Host="PC" Pid="24720" HostCore="12" HostMemory="034129068032">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="dardi" Host="PC" Pid="31204" HostCore="12" HostMemory="034129068032">
+    </Process>
+</ProcessHandle>

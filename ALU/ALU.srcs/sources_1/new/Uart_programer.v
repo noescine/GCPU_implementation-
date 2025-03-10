@@ -14,8 +14,9 @@ module UART_Controller (
     parameter CLK_FREQ = 50000000; // 50 MHz
     localparam BAUD_TICK = CLK_FREQ / BAUDRATE;
 
+	reg [7:0] lines_in_d1	= 8'b0;
     reg [7:0] data_to_tx 	= 8'b0;
-    reg [7:0] prog_res 		= 8'b0;
+    reg [7:0] prog_res 		= "P";
     reg [7:0] rx_data 		= 8'b0;
     reg [15:0] baud_counter = 0;
     reg [3:0] bit_count 	= 0;
@@ -130,25 +131,29 @@ module UART_Controller (
             data_to_tx <= 8'b0; // Reiniciar data_to_tx
         end
         else begin
-			if (prog_mode) begin
+			if (prog_mode && rx_valid) begin // solo transmitir cuando se ha recibido info
 				case (send_count)
-					4'd0: data_to_tx <= 8'b01010000; // "P"
-					4'd1: data_to_tx <= 8'b01110010; // "r"
-					4'd2: data_to_tx <= 8'b01101111; // "o"
-					4'd3: data_to_tx <= 8'b01100111; // "g"
-					4'd4: data_to_tx <= 8'b01110010; // "r"
-					4'd5: data_to_tx <= 8'b01100001; // "a"
-					4'd6: data_to_tx <= 8'b01101101; // "m"
-					4'd7: data_to_tx <= 8'b01101101; // "m"
-					4'd8: data_to_tx <= 8'b01101001; // "i"
-					4'd9: data_to_tx <= 8'b01101110; // "n"
-					4'd10:data_to_tx <= 8'b01100111; // "g"
-					4'd11: data_to_tx <= 8'b00001101; // "\r"
-					4'd12: data_to_tx <= 8'b00001010; // "\n
-					default: begin
-						data_to_tx <= 8'b0;
-					end
+					4'd0: data_to_tx <= "P";
+					4'd1: data_to_tx <= "r";
+					4'd2: data_to_tx <= "o";
+					4'd3: data_to_tx <= "g";
+					4'd4: data_to_tx <= "r";
+					4'd5: data_to_tx <= "a";
+					4'd6: data_to_tx <= "m";
+					4'd7: data_to_tx <= "m";
+					4'd8: data_to_tx <= "i";
+					4'd9: data_to_tx <= "n";
+					4'd10:data_to_tx <= "g";
+					4'd11: data_to_tx <= ":";
+					4'd12: data_to_tx <= " ";
+					4'd13: data_to_tx <= lines_in_d1 + 48;	
+					4'd14: data_to_tx <= "\r";
+					4'd15: data_to_tx <= "\n";
 				endcase
+				lines_in_d1 <= lines_in_d1 + 1;
+			end
+			else begin
+				data_to_tx <= 8'b0;
 			end
 			if (send_count <= 12) begin
 				send_count <= send_count + 1;  // Incrementar el contador de ciclos de sending
