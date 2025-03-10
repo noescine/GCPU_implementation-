@@ -145,8 +145,9 @@ module UART_Controller (
 				IDLE: begin
 					if (prog_mode) begin
 						tx_start <= 1;
-						tx_state <= PROGRAMMING;
 						send_count <= 0;
+						tx_state <= PROGRAMMING;
+						
 					end
 					else begin
 						tx_state <= IDLE;
@@ -248,17 +249,17 @@ module UART_Controller (
         else begin
             if (rx_valid) begin
                 seq_buffer <= {seq_buffer[23:0], rx_data};
-				if (seq_buffer == seq_prog) begin
-					prog_mode <= 1;
+			end
+			if (seq_buffer == seq_prog) begin
+				prog_mode <= 1;
+			end
+			else if (prog_mode) begin
+				if (seq_buffer == seq_end) begin
+					prog_mode <= 0;
+					wr_en <= 0;
 				end
-				else if (prog_mode) begin
-					if (seq_buffer == seq_end) begin
-						prog_mode <= 0;
-						wr_en <= 0;
-					end
-					else begin
-						wr_en <= 1;	//activar esctrictura hasta que llege un nuevo byte
-					end
+				else begin
+					wr_en <= 1;	//activar esctrictura hasta que llege un nuevo byte
 				end
 			end
         end
