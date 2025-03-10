@@ -69,8 +69,6 @@ ALU/ALU.runs/impl_1/GPPU_bus_skew_routed.rpt
 ALU/ALU.runs/impl_1/GPPU_bus_skew_routed.pb
 ALU/ALU.runs/impl_1/GPPU.vdi
 ALU/ALU.runs/impl_1/GPPU.tcl
-ALU/ALU.runs/impl_1/GPPU.bit
-ALU/ALU.runs/impl_1/GPPU.bin
 ALU/ALU.runs/impl_1/gen_run.xml
 ALU/ALU.runs/impl_1/clockInfo.txt
 ALU/ALU.runs/impl_1/.write_bitstream.end.rst
