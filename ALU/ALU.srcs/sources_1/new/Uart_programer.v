@@ -83,7 +83,7 @@ module UART_Controller (
         end
         else begin
 			if (tx_start && !sending) begin
-				if (tx_counter >= BAUD_TICK - 1) begin
+				if (tx_counter >= BAUD_TICK) begin
 					tx_counter <= 0;
 					sending     <= 1;
 					tx_bit_count <= 0;
@@ -96,7 +96,7 @@ module UART_Controller (
 				end
 			end
 			else if (sending) begin
-				if (tx_counter >= BAUD_TICK - 1) begin
+				if (tx_counter >= BAUD_TICK) begin
 					tx_counter <= 0;
 					tx_bit_count <= tx_bit_count + 1;
 				end
@@ -131,7 +131,8 @@ module UART_Controller (
             data_to_tx <= 8'b0; // Reiniciar data_to_tx
         end
         else begin
-			if (prog_mode && rx_valid) begin // solo transmitir cuando se ha recibido info
+			if (prog_mode && receiving) begin // solo transmitir cuando se ha recibido info
+				
 				case (send_count)
 					4'd0: data_to_tx <= "P";
 					4'd1: data_to_tx <= "r";
@@ -177,8 +178,8 @@ module UART_Controller (
                 seq_buffer <= {seq_buffer[23:0], rx_data};
             end
             if (seq_buffer == seq_prog) begin
+				tx_start <= 1; // Activar tx_start cuando entra en modo programación
                 prog_mode <= 1;
-                tx_start <= 1; // Activar tx_start cuando entra en modo programación
             end
             else if (prog_mode) begin
                 if (seq_buffer == seq_end) begin
