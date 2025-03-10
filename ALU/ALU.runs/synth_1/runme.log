@@ -29,3 +29,388 @@ INFO: [Synth 8-7075] Helper process launched with PID 6240
 ---------------------------------------------------------------------------------
 Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 994.332 ; gain = 467.926
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-11241] undeclared symbol 'prog_mode', assumed default net type 'wire' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:56]
+INFO: [Synth 8-11241] undeclared symbol 'tx_data', assumed default net type 'wire' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:72]
+INFO: [Synth 8-11241] undeclared symbol 'clk', assumed default net type 'wire' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:84]
+INFO: [Synth 8-6157] synthesizing module 'GPPU' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:1]
+INFO: [Synth 8-6157] synthesizing module 'FreqCtrl' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/freqctrl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'FreqCtrl' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/freqctrl.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Visualizer32B' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v:1]
+INFO: [Synth 8-226] default block is never used [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v:15]
+INFO: [Synth 8-6155] done synthesizing module 'Visualizer32B' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Vizual_32b.v:1]
+INFO: [Synth 8-6157] synthesizing module 'BranchUnit' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Brch_M.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'BranchUnit' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Brch_M.v:22]
+INFO: [Synth 8-6157] synthesizing module 'UART_Controller' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'UART_Controller' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:1]
+WARNING: [Synth 8-689] width (1) of port connection 'tx_data' does not match port width (8) of module 'UART_Controller' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:72]
+WARNING: [Synth 8-7071] port 'tx_bit_count' of module 'UART_Controller' is unconnected for instance 'uart_inst' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:69]
+WARNING: [Synth 8-7023] instance 'uart_inst' of module 'UART_Controller' has 9 connections declared, but only 8 given [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:69]
+INFO: [Synth 8-6157] synthesizing module 'Instruction_Memory' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Instruction_Memory.v:5]
+	Parameter MEM_SIZE bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Instruction_Memory' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Instruction_Memory.v:5]
+INFO: [Synth 8-6157] synthesizing module 'Program_counter' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Program_counter.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Program_counter' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Program_counter.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Control_unit' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Control_Unit.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Control_unit' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Control_Unit.v:3]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/ALU.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/ALU.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Register' [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Cache_L1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Register' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Cache_L1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'GPPU' (0#1) [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:1]
+WARNING: [Synth 8-6014] Unused sequential element prog_res_reg was removed.  [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:130]
+WARNING: [Synth 8-7137] Register data_out_reg in module UART_Controller has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/Uart_programer.v:63]
+WARNING: [Synth 8-3848] Net tx_data in module/entity GPPU does not have driver. [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:72]
+WARNING: [Synth 8-3848] Net DataRd in module/entity GPPU does not have driver. [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:16]
+WARNING: [Synth 8-3848] Net clk in module/entity GPPU does not have driver. [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/sources_1/new/GPPU.v:84]
+WARNING: [Synth 8-7129] Port Inst[6] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[5] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[4] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[3] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[2] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[1] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[0] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prog_mode in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RESET in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[5] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[4] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[3] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[2] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[1] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[0] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module Program_counter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[7] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[6] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[5] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[4] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[3] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[2] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[1] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[0] in module UART_Controller is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1107.980 ; gain = 581.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1107.980 ; gain = 581.574
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1107.980 ; gain = 581.574
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1107.980 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc]
+Finished Parsing XDC File [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/GPPU_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/GPPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1201.781 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1201.781 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1201.781 ; gain = 675.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tfgg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1201.781 ; gain = 675.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1201.781 ; gain = 675.375
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3971] The signal "Instruction_Memory:/im_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 1201.781 ; gain = 675.375
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   33 Bit       Adders := 1     
+	   2 Input   32 Bit       Adders := 4     
+	   3 Input   32 Bit       Adders := 1     
+	   2 Input   27 Bit       Adders := 1     
+	   2 Input   25 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 1     
+	   2 Input   13 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 3     
+	   2 Input    3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 18    
+	               25 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	                8 Bit    Registers := 8     
+	                6 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---Multipliers : 
+	              32x32  Multipliers := 1     
++---RAMs : 
+	              40K Bit	(5120 X 8 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   33 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 8     
+	   4 Input   32 Bit        Muxes := 1     
+	   2 Input   25 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 8     
+	   2 Input    8 Bit        Muxes := 3     
+	   2 Input    7 Bit        Muxes := 3     
+	   7 Input    6 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 13    
+	   2 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 38    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+DSP Report: Generating DSP AOPB3, operation Mode is: A*B.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+DSP Report: Generating DSP AOPB3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+DSP Report: Generating DSP AOPB3, operation Mode is: A*B.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+DSP Report: Generating DSP AOPB3, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+DSP Report: operator AOPB3 is absorbed into DSP AOPB3.
+WARNING: [Synth 8-7129] Port Inst[6] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[5] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[4] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[3] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[2] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[1] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Inst[0] in module Register is either unconnected or has no load
+WARNING: [Synth 8-7129] Port prog_mode in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RESET in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[5] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[4] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[3] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[2] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[1] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port Funct7[0] in module Control_unit is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk in module Program_counter is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[7] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[6] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[5] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[4] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[3] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[2] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[1] in module UART_Controller is either unconnected or has no load
+WARNING: [Synth 8-7129] Port tx_data[0] in module UART_Controller is either unconnected or has no load
+INFO: [Synth 8-3971] The signal "im_inst/im_reg" was recognized as a true dual port RAM template.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:34 . Memory (MB): peak = 1208.613 ; gain = 682.207
+---------------------------------------------------------------------------------
+ Sort Area is  AOPB3_0 : 0 0 : 3101 5879 : Used 1 time 0
+ Sort Area is  AOPB3_0 : 0 1 : 2778 5879 : Used 1 time 0
+ Sort Area is  AOPB3_3 : 0 0 : 2759 5418 : Used 1 time 0
+ Sort Area is  AOPB3_3 : 0 1 : 2659 5418 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
+-------NONE-------
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|ALU         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:42 . Memory (MB): peak = 1367.559 ; gain = 841.152
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:52 . Memory (MB): peak = 1467.926 ; gain = 941.520
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
+-------NONE-------
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_2_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_2_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance im_inst/im_reg_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:00:54 . Memory (MB): peak = 1474.289 ; gain = 947.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1623.035 ; gain = 1096.629
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1623.035 ; gain = 1096.629
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1623.035 ; gain = 1096.629
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1623.035 ; gain = 1096.629
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1624.984 ; gain = 1098.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1624.984 ; gain = 1098.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|ALU         | A*B          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ALU         | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     2|
+|2     |CARRY4   |   390|
+|3     |DSP48E1  |     3|
+|4     |LUT1     |    43|
+|5     |LUT2     |   172|
+|6     |LUT3     |  1092|
+|7     |LUT4     |   276|
+|8     |LUT5     |   197|
+|9     |LUT6     |   882|
+|10    |MUXF7    |   143|
+|11    |MUXF8    |    71|
+|12    |RAMB36E1 |     6|
+|13    |FDCE     |   598|
+|14    |FDPE     |    46|
+|15    |FDRE     |    88|
+|16    |IBUF     |     6|
+|17    |OBUF     |    19|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1624.984 ; gain = 1098.578
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 25 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:00:56 . Memory (MB): peak = 1624.984 ; gain = 1004.777
+Synthesis Optimization Complete : Time (s): cpu = 00:00:45 ; elapsed = 00:00:57 . Memory (MB): peak = 1624.984 ; gain = 1098.578
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 1634.172 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 613 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1637.828 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 15a3b4f6
+INFO: [Common 17-83] Releasing license: Synthesis
+55 Infos, 57 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:01:03 . Memory (MB): peak = 1637.828 ; gain = 1302.547
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1637.828 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/synth_1/GPPU.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file GPPU_utilization_synth.rpt -pb GPPU_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Mar  9 23:19:42 2025...
