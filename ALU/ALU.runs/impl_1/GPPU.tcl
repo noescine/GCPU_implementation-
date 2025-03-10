@@ -1,5 +1,5 @@
 namespace eval ::optrace {
-  variable script "E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/impl_1/GPPU.tcl"
+  variable script "C:/Users/Ciudad Maderas/Documents/GCPU_implementation-/ALU/ALU.runs/impl_1/GPPU.tcl"
   variable category "vivado_impl"
 }
 
@@ -104,23 +104,23 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 3
-  set_param runs.launchOptions { -jobs 6  }
+  set_param chipscope.maxJobs 5
+  set_param runs.launchOptions { -jobs 14  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tfgg484-2
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.cache/wt} [current_project]
-  set_property parent.project_path {E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.xpr} [current_project]
-  set_property ip_output_repo {{E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.cache/ip}} [current_project]
+  set_property webtalk.parent_dir {C:/Users/Ciudad Maderas/Documents/GCPU_implementation-/ALU/ALU.cache/wt} [current_project]
+  set_property parent.project_path {C:/Users/Ciudad Maderas/Documents/GCPU_implementation-/ALU/ALU.xpr} [current_project]
+  set_property ip_output_repo {{C:/Users/Ciudad Maderas/Documents/GCPU_implementation-/ALU/ALU.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet {{E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.runs/synth_1/GPPU.dcp}}
+  add_files -quiet {{C:/Users/Ciudad Maderas/Documents/GCPU_implementation-/ALU/ALU.runs/synth_1/GPPU.dcp}}
 OPTRACE "read constraints: implementation" START { }
-  read_xdc {{E:/dardi/Nueva carpeta/GitHub/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc}}
+  read_xdc {{C:/Users/Ciudad Maderas/Documents/GCPU_implementation-/ALU/ALU.srcs/constrs_1/imports/new/HP_LAB_1.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }
