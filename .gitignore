@@ -170,3 +170,8 @@ ALU/ALU.runs/synth_1/vivado.pb
 ALU/ALU.srcs/utils_1/imports/synth_1/ALU.dcp
 ALU/ALU.runs/impl_1/route_design.pb
 ALU/ALU.runs/impl_1/runme.log
+ALU/ALU.cache/wt/project.wpc
+ALU/ALU.cache/wt/project.wpc
+ALU/ALU.cache/wt/synthesis.wdf
+ALU/ALU.cache/wt/webtalk_pa.xml
+ALU/ALU.runs/impl_1/.phys_opt_design.begin.rst

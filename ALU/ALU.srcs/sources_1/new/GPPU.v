@@ -68,7 +68,8 @@ module GPPU(
         // Instanciación del UART_Controller
     UART_Controller uart_inst (
         .clk(CLK),             // Reloj del sistema
-        .reset(n_reset),         // Reset global
+        .reset(n_reset),       // Reset global
+        .tx_data(tx_data),
         .rx(rx),               // Entrada UART RX
         .tx(tx),               // Salida UART TX
         .prog_mode(prog_mode), // Señal de modo programación
