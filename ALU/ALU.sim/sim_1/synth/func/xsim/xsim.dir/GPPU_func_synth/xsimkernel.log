@@ -1,7 +1,0 @@
-Running: xsim.dir/GPPU_func_synth/xsimk.exe -simmode gui -wdb GPPU_func_synth.wdb -simrunnum 0 -socket 56508
-Design successfully loaded
-Design Loading Memory Usage: 29200 KB (Peak: 29200 KB)
-Design Loading CPU Usage: 452 ms
-Simulation completed
-Simulation Memory Usage: 30184 KB (Peak: 30184 KB)
-Simulation CPU Usage: 467 ms

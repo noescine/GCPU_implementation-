@@ -1,18 +1,22 @@
 module GPPU(
-    input CLK,
-    input RESET,
-    input H_L,
-    input kplus,
-    input kminus,
-    input rx,
-    
-    output tx,
-    output [3:0]n_Flags,
-    output [5:0] dp_sel,
-    output [7:0] OUT_DP
-    );
-    
-    wire ALUASrc, ALUBSrc, RUWr, NextPCSrc, PRECLOCK, n_reset, V32b, C_O, ZERO, N_F, O_F, wr_en;
+    input  wire CLK,
+    input  wire RESET,
+    input  wire H_L,
+    input  wire kplus,
+    input  wire kminus,
+    input  wire rx,
+
+    output wire tx,
+    output wire [3:0] n_Flags,
+    output wire [5:0] dp_sel,
+    output wire [7:0] OUT_DP
+);
+
+    // Señales internas para conectar módulos
+    wire ALUASrc, ALUBSrc, RUWr, NextPCSrc, PRECLOCK, n_reset;
+    wire V32b;
+    wire C_O, ZERO, N_F, O_F;
+    wire wr_en, prog_mode;
     wire [31:0] DataWr, Pc, AOPB, Inst, RUrs1, RUrs2, DataRd;
     wire [7:0] data_out;
     wire [4:0] BrOp;
@@ -20,26 +24,35 @@ module GPPU(
     wire [2:0] ImmSrc;
     wire [1:0] RUDataWrSrc;
 
+    reg [7:0] tx_data = 8'h0C;
+    wire [1:0]  tx_len;
+    wire        tx_start;
+    wire        tx_busy;
+    wire        tx_done;
+
+    // Niveles invertidos para n_Flags
     assign n_Flags[0] = ~O_F;
     assign n_Flags[1] = ~C_O;
     assign n_Flags[2] = ~ZERO;
     assign n_Flags[3] = ~N_F;
+
     assign n_reset = ~RESET;
 
+    // Clock divider y señal V32b
+    // Esto podría ir en módulo aparte, pero si lo tienes aquí, se deja como está.
     reg [19:0] counter2 = 0;
     reg clk_div2 = 0;
-
     always @(posedge CLK) begin
         if (counter2 > 128889) begin
             counter2 <= 0;
             clk_div2 <= ~clk_div2;
-        end 
-        else begin
+        end else begin
             counter2 <= counter2 + 1;
         end
     end
-    
     assign V32b = clk_div2;
+
+    // Instanciar módulos, solo conectando señales necesarias
 
     FreqCtrl FC (
         .CLK(CLK),
@@ -65,28 +78,34 @@ module GPPU(
         .BrOp(BrOp),
         .NextPCSrc(NextPCSrc)
     );
-        // Instanciación del UART_Controller
-    UART_Controller uart_inst (
-        .clk(CLK),             // Reloj del sistema
-        .reset(n_reset),       // Reset global
-        .tx_data(tx_data),
-        .rx(rx),               // Entrada UART RX
-        .tx(tx),               // Salida UART TX
-        .prog_mode(prog_mode), // Señal de modo programación
-        .wr_en(wr_en),         // Enable de escritura en memoria
-        .data_out(data_out)    // Byte recibido desde el UART
+
+    UART_Controller #(
+    .BAUDRATE(115200),
+    .CLK_FREQ(50000000)
+    ) uart_inst (
+        .clk(CLK),
+        .reset(n_reset),
+        .rx(rx),
+        .tx_data(tx_data),    // Conexión a lógica externa
+        .tx_len(tx_len),      // Conexión a lógica externa  
+        .tx_start(tx_start),  // Conexión a lógica externa
+        .tx(tx),
+        .prog_mode(prog_mode),
+        .wr_en(wr_en),
+        .data_out(data_out),
+        .tx_busy(tx_busy),
+        .tx_done(tx_done)
     );
 
-    // Instanciación de la memoria de instrucciones
     Instruction_Memory #(
-        .MEM_SIZE(5) // Tamaño de la memoria en KiB
+        .MEM_SIZE(5)
     ) im_inst (
-        .clk(clk),             // Reloj del sistema
-        .wr_en(wr_en),         // Enable de escritura
-        .data_in(data_out),    // Byte recibido desde el UART
-        .prog_mode(prog_mode), // Señal de modo programación
-        .addrIM(Pc),       // Dirección de lectura/escritura
-        .inst(Inst)            // Instrucción leída
+        .clk(CLK),
+        .wr_en(wr_en),
+        .data_in(data_out),
+        .prog_mode(prog_mode),
+        .addrIM(Pc),
+        .inst(Inst)
     );
 
     Program_counter PC (
@@ -145,4 +164,5 @@ module GPPU(
         .RUrs1(RUrs1),
         .RUrs2(RUrs2)
     );
+
 endmodule

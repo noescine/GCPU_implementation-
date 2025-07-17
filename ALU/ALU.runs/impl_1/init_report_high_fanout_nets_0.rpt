@@ -1,0 +1,31 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jul 16 18:07:54 2025
+| Host         : DESKTOP-T2K4A01 running 64-bit major release  (build 9200)
+| Command      : report_high_fanout_nets -file init_report_high_fanout_nets_0.rpt
+| Design       : GPPU
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+High Fan-out Nets Information
+
+1. Summary
+----------
+
++---------------------------+--------+-------------+
+| Net Name                  | Fanout | Driver Type |
++---------------------------+--------+-------------+
+| uart_inst/prog_mode_reg_0 |    675 | LUT2        |
+| uart_inst/AR[0]           |    205 | LUT1        |
+| im_inst/RUrs2[1]          |    159 | LUT5        |
+| im_inst/RUrs2[2]          |    149 | LUT5        |
+| im_inst/RUrs2[0]          |    146 | LUT5        |
+| im_inst/RUrs2[3]          |    142 | LUT5        |
+| im_inst/im_reg_2_1_0[4]   |    132 | RAMB36E1    |
+| im_inst/im_reg_2_1_0[5]   |    130 | RAMB36E1    |
+| im_inst/RUrs2[4]          |    129 | LUT5        |
+| im_inst/im_reg_2_1_0[1]   |    129 | RAMB36E1    |
++---------------------------+--------+-------------+
+
+

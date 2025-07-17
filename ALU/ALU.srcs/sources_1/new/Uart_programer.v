@@ -1,267 +1,402 @@
-module UART_Controller (
-    input clk,             			// Reloj del sistema
-    input reset,           			// Reset global
-    input rx,              			// Entrada UART RX
-    input [7:0] tx_data,			// Entrada de dato a enviar
-    output reg tx,         			// Salida UART TX
-    output reg prog_mode,  			// Señal de modo programación
-    output reg wr_en,      			// Escritura a memoria
-    output reg [3:0] tx_bit_count,	// Numero de bits de envío
-    output reg [7:0] data_out 		// Byte recibido
+/**************************************
+// CHANGE: Refactored UART Controller with enhanced features [2023-11-15]
+// 1. Immediate sequence detection
+// 2. Configurable echo system via AT commands
+// 3. Optimized structure for Vivado synthesis
+**************************************/
+module UART_Controller #(
+    parameter BAUDRATE = 115200,
+    parameter CLK_FREQ = 50000000
+)(
+    input clk,
+    input reset,
+    
+    // UART I/O
+    input rx,
+    output reg tx,
+    
+    // Transmisión
+    input [31:0] tx_data,
+    input [1:0] tx_len,
+    input tx_start,
+    output reg tx_busy,
+    output reg tx_done,
+    
+    // Recepción
+    output reg [7:0] data_out,
+    output reg wr_en,
+    
+    // Control modo programación
+    output reg prog_mode
 );
 
-    parameter BAUDRATE = 115200;
-    parameter CLK_FREQ = 50000000; // 50 MHz
-	
-	localparam IDLE        = 2'b00;
-    localparam PROGRAMMING = 2'b01;
-    localparam FLASH_DONE  = 2'b10;
-    localparam NORMAL      = 2'b11;
+    // =============================================
+    // 1. Registros y parámetros
+    // =============================================
+    
+    // Parámetros de configuración
     localparam BAUD_TICK = CLK_FREQ / BAUDRATE;
+    localparam [31:0] SEQ_PROG = 32'hA55AC33C;
+    localparam [31:0] SEQ_END = 32'h00000000;
+    
+    // Estados FSM principal
+    localparam [1:0] NORMAL     = 2'b00,
+                    PROGRAMMING = 2'b01,
+                    AT_COMMAND  = 2'b10;
+    
+    // Comandos AT
+    localparam [7:0] AT_EC0 = "0", AT_EC1 = "1";
+    
+    // Mensajes del sistema
+    localparam [31:0] MSG_PROG_MOD  = "gorP",
+                     MSG_END_MOD    = "mdnE",
+                     MSG_CRLF       = 8'h0A;
+    
+    // Registros TX
+    reg [1:0] int_tx_len;
+    reg [15:0] tx_counter;
+    reg [3:0] tx_bit_index;
+    reg [9:0] tx_shift;
+    reg [7:0] tx_buffer [0:3];
+    reg [1:0] byte_index;
+    reg [1:0] bytes_to_send;
+    reg [31:0] internal_tx_data = 0;
+    reg internal_tx_start = 0;
+    
+    // Registros RX
+    reg rx_data_sync, rx_data;
+    reg [15:0] rx_clock_count;
+    reg [2:0] rx_bit_index;
+    reg [7:0] rx_byte;
+    reg rx_dv;
+    reg [2:0] rx_state;
+    
+    // FSM y control
+    reg [1:0] state;
+    reg [31:0] seq_buffer;
+    reg seq_prog_detected, seq_end_detected;
+    reg [3:0] send_count;
+    reg [9:0] instr_count;
+    
+    // Sistema de eco
+    reg echo_enabled;
+    reg at_cmd_detected;
+    reg [2:0] at_parser_state;
+    reg [7:0] at_cmd_buffer [0:4];
+    reg [2:0] at_cmd_index;
+    
+    // Señales auxiliares
+    wire [7:0] current_rx_byte = data_out;
 
-    reg [9:0] instr_count = 0;  // Cuenta instrucciones recibidas
-    reg [1:0] tx_state = 0;     // Máquina de estados    
-	reg [7:0] data_to_tx 	= 8'b0;
-    reg [7:0] prog_res 		= "P";
-    reg [7:0] rx_data 		= 8'b0;
-    reg [15:0] baud_counter = 0;
-    reg [3:0] bit_count 	= 0;
-    reg receiving = 0, rx_valid = 0 ,sending_d = 0;  // Variable para detectar el flanco de bajada de sending
-
-    reg [31:0] seq_prog = 32'hA55AC33C; // Secuencia para entrar en modo programación
-    reg [31:0] seq_end  = 32'h00000000; // Secuencia para salir del modo programación
-    reg [31:0] seq_buffer = 32'b0;
-
-    reg [15:0] tx_counter = 0;
-    reg sending = 0, tx_start = 0;
-    reg [5:0] send_count = 0; // Contador de ciclos de sending
-
-    // UART RX (8N1, sin paridad)
+    // =============================================
+    // 2. Lógica RX (incluye parser AT)
+    // =============================================
     always @(posedge clk or posedge reset) begin
         if (reset) begin
-            receiving    <= 0;
-            baud_counter <= 0;
-            bit_count    <= 0;
-            rx_valid     <= 0;
-            rx_data      <= 8'b0;
-        end
-        else begin
-            if (!receiving && rx == 0) begin
-                receiving   <= 1;
-                baud_counter <= 0;
-                bit_count   <= 0;
-            end
-            else if (receiving) begin
-                if (baud_counter >= BAUD_TICK - 1) begin
-                    baud_counter <= 0;
-                end
-                else begin
-                    baud_counter <= baud_counter + 1;
-                end
-
-                if (baud_counter == (BAUD_TICK / 2)) begin
-                    if (bit_count >= 1 && bit_count <= 8) begin
-                        rx_data[bit_count - 1] <= rx;
-                    end
-                    bit_count <= bit_count + 1;
-                    if (bit_count >= 9) begin
-                        rx_valid   <= 1;
-                        data_out   <= rx_data;
-                        receiving  <= 0;
-                        bit_count  <= 0;
-                        baud_counter <= 0;
-                    end
-                end
-            end
-            else begin
-                rx_valid <= 0;
-            end
-        end
-    end
-
-    // UART TX (Transmisión de respuestas)
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            tx           <= 1;  // Línea TX en reposo (idle)
-            sending      <= 0;
-            tx_bit_count <= 0;
-            tx_counter   <= 0;
-        end
-        else begin
-			if (tx_start && !sending) begin
-				if (tx_counter >= BAUD_TICK) begin
-					tx_counter <= 0;
-					sending     <= 1;
-					tx_bit_count <= 0;
-					tx_counter  <= 0;
-					tx          <= 0;  // Inicia la transmisión con Start bit
-				end
-				else begin
-					tx_counter  <= tx_counter + 1;
-					tx          <= 1;
-				end
-			end
-			else if (sending) begin
-				if (tx_counter >= BAUD_TICK) begin
-					tx_counter <= 0;
-					tx_bit_count <= tx_bit_count + 1;
-				end
-				else begin
-					tx_counter <= tx_counter + 1;
-				end
-				if (tx_counter == 0) begin
-					if (tx_bit_count >= 1 && tx_bit_count <= 8) begin
-						tx <= data_to_tx[tx_bit_count - 1];
-					end
-					else if (tx_bit_count == 9) begin
-						tx      <= 1;  	// Bit de parada
-						sending <= 0;	// Fin de la transmisión
-						tx_bit_count    <= 0;
-						tx_counter      <= 0;              
-					end
-				end
-			end
-			else begin
-				tx           <= 1;
-				sending      <= 0;
-				tx_bit_count <= 0;
-				tx_counter   <= 0;
-			end
-		end
-	end
-
-    // Máquina de estados para el transmisor UART
-	always @(posedge clk) begin
-		if (reset) begin
-			tx_state   <= IDLE;
-			instr_count <= 0;
-			send_count <= 0;
-			sending_d <= 1;  // En reset, sending está en alto (idle)
-		end 
-		else begin
-			// Detectar flanco de bajada de sending
-			sending_d <= sending; // Guardamos el valor anterior de sending
-			case (tx_state)
-				IDLE: begin
-					if (prog_mode) begin
-						tx_start <= 1;
-						send_count <= 0;
-						tx_state <= PROGRAMMING;
-						
-					end
-					else begin
-						tx_state <= IDLE;
-					end
-				end
-
-				PROGRAMMING: begin
-					case (send_count)
-						4'd0:  data_to_tx <= "P";
-						4'd1:  data_to_tx <= "r";
-						4'd2:  data_to_tx <= "o";
-						4'd3:  data_to_tx <= "g";
-						4'd4:  data_to_tx <= "r";
-						4'd5:  data_to_tx <= "a";
-						4'd6:  data_to_tx <= "m";
-						4'd7:  data_to_tx <= "m";
-						4'd8:  data_to_tx <= "i";
-						4'd9:  data_to_tx <= "n";
-						4'd10: data_to_tx <= "g";
-						4'd11: data_to_tx <= "\r";
-						4'd12: data_to_tx <= "\n";
-					endcase					
-					if (sending_d && !sending) begin // Flanco de bajada de sending
-						if (send_count <= 12) begin
-							send_count <= send_count + 1;
-						end 
-						else begin
-							send_count <= 0; 
-						end
-					end					
-					if (wr_en) begin // Solo avanzar a NORMAL si hubo un nuevo Byte
-						tx_state <= NORMAL;
-					end
-				end
-
-				NORMAL: begin
-					if (rx_valid) begin		//cada que haya un Byte nuevo
-						if ((instr_count & 3) == 3) begin  // cuanto juntemos 4 bytes
-							send_count <= 0;
-							tx_state <= FLASH_DONE;
-						end
-						instr_count <= instr_count + 1;
-						data_to_tx <= "\n";  // Saltos de línea cuando se están recibiendo datos
-					end
-				end
-				FLASH_DONE: begin
-						case (send_count)
-							4'd0:  data_to_tx <= "R";
-							4'd1:  data_to_tx <= "e";
-							4'd2:  data_to_tx <= "c";
-							4'd3:  data_to_tx <= "e";
-							4'd4:  data_to_tx <= "i";
-							4'd5:  data_to_tx <= "v";
-							4'd6:  data_to_tx <= "e";
-							4'd7:  data_to_tx <= "d";
-							4'd8:  data_to_tx <= " ";
-							4'd9:  data_to_tx <= ((instr_count / 4) / 1000) + "0";   // Mostrar las mil instrucciones
-							4'd10: data_to_tx <= (((instr_count / 4) / 100) % 10) + "0";  // Mostrar las centenas
-							4'd11: data_to_tx <= (((instr_count / 4) / 10) % 10) + "0";  // Mostrar las decenas
-							4'd12: data_to_tx <= ((instr_count / 4) % 10) + "0";   // Mostrar las unidades
-							4'd13: data_to_tx <= " ";
-							4'd14: data_to_tx <= "i";
-							4'd15: data_to_tx <= "n";
-							5'd16: data_to_tx <= "s";
-							5'd17: data_to_tx <= "t";
-							5'd18: data_to_tx <= "r";
-							5'd19: data_to_tx <= "u";
-							5'd20: data_to_tx <= "c";
-							5'd21: data_to_tx <= "t";
-							5'd22: data_to_tx <= "i";
-							5'd23: data_to_tx <= "o";
-							5'd24: data_to_tx <= "n";
-							5'd25: data_to_tx <= "\r";
-							5'd26: begin 
-								data_to_tx <= "\n"; 
-								if ((instr_count / 4) >= 1024) begin  // Cuando se hayan recibido las 1024 instrucciones
-									tx_state <= IDLE;  // Volver a estado IDLE
-								end
-								else tx_state <= NORMAL;  // Continuar en el estado NORMAL
-							end
-						endcase
-						if (!sending && sending_d && !sending) begin  // Flanco de bajada de sending
-							send_count <= send_count + 1;
-						end
-					end
-			endcase
-		end
-	end
-
-
-    // Control de Modo Programación y Escritura en Memoria
-    always @(posedge clk) begin
-        if (reset) begin
-            prog_mode <= 0;
+            rx_state <= 0;
+            rx_clock_count <= 0;
+            rx_bit_index <= 0;
+            rx_byte <= 0;
+            rx_dv <= 0;
+            data_out <= 0;
             wr_en <= 0;
-            seq_buffer <= 32'b0;
-            tx_start <= 0; // Reiniciar tx_start
-        end
-        else begin
-            if (rx_valid) begin
-                seq_buffer <= {seq_buffer[23:0], rx_data};
-			end
-			if (seq_buffer == seq_prog) begin
-				prog_mode <= 1;
-			end
-			else if (prog_mode) begin
-				if (seq_buffer == seq_end) begin
-					prog_mode <= 0;
-					wr_en <= 0;
-				end
-				else begin
-					wr_en <= 1;	//activar esctrictura hasta que llege un nuevo byte
-				end
-			end
+            rx_data_sync <= 1;
+            rx_data <= 1;
+        end else begin
+            // Sincronización de la entrada RX
+            rx_data_sync <= rx;
+            rx_data <= rx_data_sync;
+            
+            // Limpieza de flags
+            rx_dv <= 0;
+            wr_en <= 0;
+            
+            // Máquina de estados de recepción
+            case (rx_state)
+                0: begin // Estado idle, esperando start bit
+                    if (!rx_data) begin
+                        rx_state <= 1;
+                        rx_clock_count <= 0;
+                    end
+                end
+                
+                1: begin // Muestreo del centro del start bit
+                    if (rx_clock_count == (BAUD_TICK-1)/2) begin
+                        if (!rx_data) begin
+                            rx_state <= 2;
+                            rx_clock_count <= 0;
+                        end else begin
+                            rx_state <= 0;
+                        end
+                    end else begin
+                        rx_clock_count <= rx_clock_count + 1;
+                    end
+                end
+                
+                2: begin // Recepción de bits de datos
+                    if (rx_clock_count == BAUD_TICK-1) begin
+                        rx_byte[rx_bit_index] <= rx_data;
+                        rx_clock_count <= 0;
+                        if (rx_bit_index == 7) begin
+                            rx_state <= 3;
+                            rx_bit_index <= 0;
+                        end else begin
+                            rx_bit_index <= rx_bit_index + 1;
+                        end
+                    end else begin
+                        rx_clock_count <= rx_clock_count + 1;
+                    end
+                end
+                
+                3: begin // Bit de stop
+                    if (rx_clock_count == BAUD_TICK-1) begin
+                        rx_dv <= 1;
+                        data_out <= rx_byte;
+                        wr_en <= 1;
+                        rx_state <= 0;
+                    end else begin
+                        rx_clock_count <= rx_clock_count + 1;
+                    end
+                end
+            endcase
         end
     end
+
+    // =============================================
+    // 3. Lógica TX (con prioridades)
+    // =============================================
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            tx <= 1;
+            tx_counter <= 0;
+            tx_bit_index <= 0;
+            tx_shift <= 10'b1111111111;
+            tx_busy <= 0;
+            byte_index <= 0;
+            tx_done <= 0;
+        end else begin
+            tx_done <= 0;
+            // Prioridad de transmisión:
+            // 1. Comandos del sistema (respuestas a secuencias)
+            // 2. Datos externos (tx_data/tx_start)
+            // 3. Eco de caracteres
+            if (!tx_busy) begin
+                if (internal_tx_start) begin
+                    // Transmisión interna (comandos del sistema)
+                    tx_buffer[0] <= internal_tx_data[7:0];
+                    tx_buffer[1] <= internal_tx_data[15:8];
+                    tx_buffer[2] <= internal_tx_data[23:16];
+                    tx_buffer[3] <= internal_tx_data[31:24];
+                    tx_shift <= {1'b1, internal_tx_data[7:0], 1'b0};
+                    tx_busy <= 1;
+                    tx_bit_index <= 0;
+                    tx_counter <= 0;
+                    bytes_to_send <= 3;
+                    byte_index <= 0;
+                end 
+                else if (tx_start) begin
+                    // Transmisión externa
+                    tx_buffer[0] <= tx_data[7:0];
+                    tx_buffer[1] <= tx_data[15:8];
+                    tx_buffer[2] <= tx_data[23:16];
+                    tx_buffer[3] <= tx_data[31:24];
+                    tx_shift <= {1'b1, tx_data[7:0], 1'b0};
+                    tx_busy <= 1;
+                    tx_bit_index <= 0;
+                    tx_counter <= 0;
+                    bytes_to_send <= tx_len;
+                    byte_index <= 0;
+                end
+                else if (echo_enabled && rx_dv && state == NORMAL) begin
+                    // Eco de caracteres (solo en modo normal)
+                    tx_buffer[0] <= current_rx_byte;
+                    tx_buffer[1] <= 0;
+                    tx_buffer[2] <= 0;
+                    tx_buffer[3] <= 0;
+                    tx_shift <= {1'b1, current_rx_byte, 1'b0};
+                    tx_busy <= 1;
+                    tx_bit_index <= 0;
+                    tx_counter <= 0;
+                    bytes_to_send <= 0; // Solo 1 byte
+                    byte_index <= 0;
+                end
+            end 
+            else if (tx_busy) begin
+                if (tx_counter == BAUD_TICK - 1) begin
+                    tx_counter <= 0;
+                    tx <= tx_shift[0];
+                    tx_shift <= {1'b1, tx_shift[9:1]};
+                    
+                    if (tx_bit_index == 9) begin
+                        if (byte_index == bytes_to_send) begin
+                            tx_busy <= 0;
+                            tx_done <= 1;
+                        end else begin
+                            byte_index <= byte_index + 1;
+                            tx_shift <= {1'b1, tx_buffer[byte_index + 1], 1'b0};
+                            tx_bit_index <= 0;
+                        end
+                    end else begin
+                        tx_bit_index <= tx_bit_index + 1;
+                    end
+                end else begin
+                    tx_counter <= tx_counter + 1;
+                end
+            end
+        end
+    end
+
+    // =============================================
+    // 4. Detección de secuencias
+    // =============================================
+   always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            seq_buffer <= 0;
+            seq_prog_detected <= 0;
+            seq_end_detected <= 0;
+        end else begin
+            // Resetear por defecto (duración de un solo ciclo)
+            seq_prog_detected <= 0;
+            seq_end_detected <= 0;
+    
+            if (seq_buffer == SEQ_PROG && !prog_mode) begin
+                seq_prog_detected <= 1;
+                seq_buffer <= 32'hFFFFFFFF;
+            end
+            else if (seq_buffer == SEQ_END && prog_mode) begin
+                seq_end_detected <= 1;
+                seq_buffer <= 0;
+            end
+            else if (rx_dv) begin
+                seq_buffer <= {seq_buffer[23:0], current_rx_byte};
+            end
+        end
+    end
+
+
+    // =============================================
+    // 5. Parser de comandos AT
+    // =============================================
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            at_parser_state <= 0;
+            at_cmd_detected <= 0;
+            at_cmd_index <= 0;
+            echo_enabled <= 0;
+        end else if (rx_dv && (state == NORMAL)) begin
+            case (at_parser_state)
+                0: begin // Esperando 'A'
+                    if (current_rx_byte == "A" || current_rx_byte == "a")  begin
+                        at_parser_state <= 1;
+                        at_cmd_buffer[0] <= current_rx_byte;
+                    end
+                end
+                
+                1: begin // Esperando 'T'
+                    if (current_rx_byte == "T" || current_rx_byte == "t") begin
+                        at_parser_state <= 2;
+                        at_cmd_buffer[1] <= current_rx_byte;
+                    end else begin
+                        at_parser_state <= 0;
+                    end
+                end
+                
+                2: begin // Esperando '+'
+                    if (current_rx_byte == "+") begin
+                        at_parser_state <= 3;
+                        at_cmd_buffer[2] <= current_rx_byte;
+                    end else begin
+                        at_parser_state <= 0;
+                    end
+                end
+                
+                3: begin // Esperando 'E'
+                    if (current_rx_byte == "E" || current_rx_byte == "e") begin
+                        at_parser_state <= 4;
+                        at_cmd_buffer[3] <= current_rx_byte;
+                    end else begin
+                        at_parser_state <= 0;
+                    end
+                end
+                
+                4: begin // Esperando 'C'
+                    if (current_rx_byte == "C" || current_rx_byte == "c") begin
+                        at_parser_state <= 5;
+                        at_cmd_buffer[4] <= current_rx_byte;
+                    end else begin
+                        at_parser_state <= 0;
+                    end
+                end
+                
+                5: begin // Esperando '0' o '1'
+                    if (current_rx_byte == AT_EC0 || current_rx_byte == AT_EC1) begin
+                        echo_enabled <= (current_rx_byte == AT_EC1);
+                        at_parser_state <= 0;
+                        at_cmd_detected <= 1;
+                    end else begin
+                        at_parser_state <= 0;
+                    end
+                end
+            endcase
+        end else begin
+            at_cmd_detected <= 0;
+        end
+    end
+
+    // =============================================
+    // 6. FSM principal
+    // =============================================
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            internal_tx_start <= 0;
+            state <= NORMAL;
+            prog_mode <= 0;
+            send_count <= 0;
+            internal_tx_data <= 0;
+            int_tx_len <= 0;
+        end else begin
+        internal_tx_start <= 0;
+            case (state)
+                NORMAL: begin
+                    if (seq_prog_detected) begin
+                        // Transición inmediata a modo programación
+                        prog_mode <= 1;
+                        state <= PROGRAMMING;
+                        internal_tx_data <= MSG_PROG_MOD;
+                        int_tx_len <= 3;
+                        internal_tx_start <= 1;
+                    end 
+                    else if (at_cmd_detected) begin
+                        state <= AT_COMMAND;
+                        // Respuesta basada en el estado de echo_enabled
+                        if (echo_enabled) begin
+                            internal_tx_data <= {8'h0D,8'h0A,"1","E"};  // "EC1\r\n"
+                        end else begin
+                            internal_tx_data <= {8'h0D,8'h0A,"0","E"};  // "EC0\r\n"
+                        end
+                        int_tx_len <= 3;        // "ECx" + CR + LF (5 bytes total)
+                        internal_tx_start <= 1;  // Iniciar transmisión
+                    end
+                end
+                
+                PROGRAMMING: begin
+                    if (seq_end_detected) begin
+                        // Salida inmediata del modo programación
+                        prog_mode <= 0;
+                        state <= NORMAL;
+                        internal_tx_data <= MSG_END_MOD;
+                        int_tx_len <= 3;
+                        internal_tx_start <= 1;
+                    end
+                end
+                
+                AT_COMMAND: begin           //ESPERA LA TRANSMISION DEL OK
+                    if (!tx_busy) begin
+                        state <= NORMAL;
+                    end
+                end
+            endcase
+        end
+    end
+
 endmodule

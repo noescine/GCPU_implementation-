@@ -1,7 +1,0 @@
-Running: xsim.dir/Cache_L1_behav/xsimk.exe -simmode gui -wdb Cache_L1_behav.wdb -simrunnum 0 -socket 64171
-Design successfully loaded
-Design Loading Memory Usage: 28392 KB (Peak: 28392 KB)
-Design Loading CPU Usage: 452 ms
-Simulation completed
-Simulation Memory Usage: 29380 KB (Peak: 29380 KB)
-Simulation CPU Usage: 593 ms

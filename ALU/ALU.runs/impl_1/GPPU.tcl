@@ -97,6 +97,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -105,6 +107,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 5
+  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 14  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tfgg484-2
@@ -131,6 +134,9 @@ OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }
+  set_param project.isImplRun true
+  generate_parallel_reports -reports { "report_timing_summary -max_paths 10 -report_unconstrained -file init_report_timing_summary_0.rpt -pb init_report_timing_summary_0.pb -rpx init_report_timing_summary_0.rpx" "report_utilization -file init_report_utilization_0.rpt -pb init_report_utilization_0.pb" "report_high_fanout_nets -file init_report_high_fanout_nets_0.rpt" "report_control_sets -file init_report_control_sets_0.rpt"  }
+  set_param project.isImplRun false
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }
 OPTRACE "init_design_write_hwdef" END { }
@@ -159,7 +165,7 @@ OPTRACE "read constraints: opt_design_post" START { }
 OPTRACE "read constraints: opt_design_post" END { }
 OPTRACE "opt_design reports" START { REPORT }
   set_param project.isImplRun true
-  generate_parallel_reports -reports { "report_drc -file GPPU_drc_opted.rpt -pb GPPU_drc_opted.pb -rpx GPPU_drc_opted.rpx"  }
+  generate_parallel_reports -reports { "report_drc -file opt_report_drc_0.rpt -pb opt_report_drc_0.pb -rpx opt_report_drc_0.rpx" "report_utilization -file opt_report_utilization_0.rpt -pb opt_report_utilization_0.pb" "report_methodology -file opt_report_methodology_0.rpt -pb opt_report_methodology_0.pb -rpx opt_report_methodology_0.rpx" "report_timing_summary -max_paths 10 -report_unconstrained -file opt_report_timing_summary_0.rpt -pb opt_report_timing_summary_0.pb -rpx opt_report_timing_summary_0.rpx" "report_high_fanout_nets -file opt_report_high_fanout_nets_0.rpt" "report_control_sets -verbose -file opt_report_control_sets_0.rpt" "report_design_analysis -logic_level_distribution -file opt_report_design_analysis_0.rpt"  }
   set_param project.isImplRun false
 OPTRACE "opt_design reports" END { }
 OPTRACE "Opt Design: write_checkpoint" START { CHECKPOINT }
@@ -189,13 +195,13 @@ OPTRACE "implement_debug_core" START { }
 OPTRACE "implement_debug_core" END { }
   } 
 OPTRACE "place_design" START { }
-  place_design -directive SSI_HighUtilSLRs
+  place_design -directive SSI_SpreadSLLs
 OPTRACE "place_design" END { }
 OPTRACE "read constraints: place_design_post" START { }
 OPTRACE "read constraints: place_design_post" END { }
 OPTRACE "place_design reports" START { REPORT }
   set_param project.isImplRun true
-  generate_parallel_reports -reports { "report_io -file GPPU_io_placed.rpt" "report_utilization -file GPPU_utilization_placed.rpt -pb GPPU_utilization_placed.pb" "report_control_sets -verbose -file GPPU_control_sets_placed.rpt"  }
+  generate_parallel_reports -reports { "report_io -file place_report_io_0.rpt" "report_utilization -file place_report_utilization_0.rpt -pb place_report_utilization_0.pb" "report_incremental_reuse -file place_report_incremental_reuse_0.rpt" "report_timing_summary -max_paths 10 -report_unconstrained -file place_report_timing_summary_0.rpt -pb place_report_timing_summary_0.pb -rpx place_report_timing_summary_0.rpx"  }
   set_param project.isImplRun false
 OPTRACE "place_design reports" END { }
 OPTRACE "Place Design: write_checkpoint" START { CHECKPOINT }
@@ -225,6 +231,9 @@ OPTRACE "phys_opt_design" END { }
 OPTRACE "read constraints: phys_opt_design_post" START { }
 OPTRACE "read constraints: phys_opt_design_post" END { }
 OPTRACE "phys_opt_design report" START { REPORT }
+  set_param project.isImplRun true
+  generate_parallel_reports -reports { "report_timing_summary -max_paths 10 -report_unconstrained -file phys_opt_report_timing_summary_0.rpt -pb phys_opt_report_timing_summary_0.pb -rpx phys_opt_report_timing_summary_0.rpx"  }
+  set_param project.isImplRun false
 OPTRACE "phys_opt_design report" END { }
 OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
   write_checkpoint -force GPPU_physopt.dcp
@@ -254,7 +263,7 @@ OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
 OPTRACE "route_design reports" START { REPORT }
   set_param project.isImplRun true
-  generate_parallel_reports -reports { "report_drc -file GPPU_drc_routed.rpt -pb GPPU_drc_routed.pb -rpx GPPU_drc_routed.rpx" "report_methodology -file GPPU_methodology_drc_routed.rpt -pb GPPU_methodology_drc_routed.pb -rpx GPPU_methodology_drc_routed.rpx" "report_power -file GPPU_power_routed.rpt -pb GPPU_power_summary_routed.pb -rpx GPPU_power_routed.rpx" "report_route_status -file GPPU_route_status.rpt -pb GPPU_route_status.pb" "report_timing_summary -max_paths 10 -report_unconstrained -file GPPU_timing_summary_routed.rpt -pb GPPU_timing_summary_routed.pb -rpx GPPU_timing_summary_routed.rpx -warn_on_violation " "report_incremental_reuse -file GPPU_incremental_reuse_routed.rpt" "report_clock_utilization -file GPPU_clock_utilization_routed.rpt" "report_bus_skew -warn_on_violation -file GPPU_bus_skew_routed.rpt -pb GPPU_bus_skew_routed.pb -rpx GPPU_bus_skew_routed.rpx"  }
+  generate_parallel_reports -reports { "report_clock_utilization -file route_report_clock_utilization_0.rpt" "report_drc -file route_report_drc_0.rpt -pb route_report_drc_0.pb -rpx route_report_drc_0.rpx" "report_power -file route_report_power_0.rpt -pb route_report_power_summary_0.pb -rpx route_report_power_0.rpx" "report_route_status -file route_report_route_status_0.rpt -pb route_report_route_status_0.pb" "report_timing_summary -max_paths 10 -report_unconstrained -warn_on_violation -file route_report_timing_summary_0.rpt -pb route_report_timing_summary_0.pb -rpx route_report_timing_summary_0.rpx" "report_incremental_reuse -file route_report_incremental_reuse_0.rpt" "report_bus_skew -warn_on_violation -file route_report_bus_skew_0.rpt -pb route_report_bus_skew_0.pb -rpx route_report_bus_skew_0.rpx"  }
   set_param project.isImplRun false
 OPTRACE "route_design reports" END { }
 OPTRACE "Route Design: write_checkpoint" START { CHECKPOINT }
