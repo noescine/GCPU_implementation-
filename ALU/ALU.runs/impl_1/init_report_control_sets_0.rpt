@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Thu Jul 17 08:48:44 2025
+| Date         : Thu Jul 17 12:23:13 2025
 | Host         : DESKTOP-T2K4A01 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -file init_report_control_sets_0.rpt
 | Design       : GPPU
@@ -56,8 +56,8 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              11 |            0 |
-| No           | No                    | Yes                    |              85 |            0 |
+| No           | No                    | No                     |              13 |            0 |
+| No           | No                    | Yes                    |              84 |            0 |
 | No           | Yes                   | No                     |              49 |            0 |
 | Yes          | No                    | No                     |               6 |            0 |
 | Yes          | No                    | Yes                    |             632 |            0 |

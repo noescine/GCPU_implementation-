@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
-| Date         : Thu Jul 17 08:48:44 2025
+| Date         : Thu Jul 17 12:23:13 2025
 | Host         : DESKTOP-T2K4A01 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file init_report_timing_summary_0.rpt -pb init_report_timing_summary_0.pb -rpx init_report_timing_summary_0.rpx
 | Design       : GPPU
@@ -140,7 +140,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-    -59.305   -14679.995                    512                 2014        0.117        0.000                      0                 2014        9.500        0.000                       0                   777  
+    -59.305   -14679.995                    512                 2015        0.117        0.000                      0                 2015        9.500        0.000                       0                   778  
 
 
 Timing constraints are not met.
@@ -163,7 +163,7 @@ sys_clk_pin  {0.000 10.000}     20.000          50.000
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin       -59.305   -14679.995                    512                 1502        0.117        0.000                      0                 1502        9.500        0.000                       0                   777  
+sys_clk_pin       -59.305   -14679.995                    512                 1503        0.117        0.000                      0                 1503        9.500        0.000                       0                   778  
 
 
 ------------------------------------------------------------------------------------------------
@@ -253,7 +253,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -1149,7 +1149,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -1189,7 +1189,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -2085,7 +2085,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[10][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -2125,7 +2125,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -3021,7 +3021,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[11][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -3061,7 +3061,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -3957,7 +3957,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[12][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -3997,7 +3997,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -4893,7 +4893,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[13][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -4933,7 +4933,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -5829,7 +5829,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[14][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -5869,7 +5869,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -6765,7 +6765,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[15][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -6805,7 +6805,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -7701,7 +7701,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[1][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -7741,7 +7741,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -8637,7 +8637,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[2][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -8677,7 +8677,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_3_0/CLKBWRCLK
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[0])
@@ -9573,7 +9573,7 @@ Slack (VIOLATED) :        -59.305ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[3][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -9614,7 +9614,7 @@ Slack (MET) :             0.117ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    CLK_IBUF_BUFG
                          FDRE                                         r  clk_div2_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.141     0.865 r  clk_div2_reg/Q
@@ -9631,7 +9631,7 @@ Slack (MET) :             0.117ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    CLK_IBUF_BUFG
                          FDRE                                         r  clk_div2_reg/C
                          clock pessimism             -0.208     0.869    
                          FDRE (Hold_fdre_C_D)         0.091     0.960    clk_div2_reg
@@ -9665,7 +9665,7 @@ Slack (MET) :             0.127ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    CLK_IBUF_BUFG
                          FDRE                                         r  counter2_reg[0]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.141     0.865 f  counter2_reg[0]/Q
@@ -9682,7 +9682,7 @@ Slack (MET) :             0.127ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    CLK_IBUF_BUFG
                          FDRE                                         r  counter2_reg[0]/C
                          clock pessimism             -0.208     0.869    
                          FDRE (Hold_fdre_C_D)         0.091     0.960    counter2_reg[0]
@@ -9716,7 +9716,7 @@ Slack (MET) :             0.127ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/at_cmd_detected_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/at_cmd_detected_reg/Q
@@ -9733,7 +9733,7 @@ Slack (MET) :             0.127ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/internal_tx_start_reg/C
                          clock pessimism             -0.208     0.869    
                          FDCE (Hold_fdce_C_D)         0.091     0.960    uart_inst/internal_tx_start_reg
@@ -9742,6 +9742,57 @@ Slack (MET) :             0.127ns  (arrival time - required time)
                          arrival time                           1.087    
   -------------------------------------------------------------------
                          slack                                  0.127    
+
+Slack (MET) :             0.134ns  (arrival time - required time)
+  Source:                 uart_inst/echo_enabled_reg/C
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            uart_inst/internal_tx_data_reg[8]/D
+                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        0.370ns  (logic 0.239ns (64.609%)  route 0.131ns (35.391%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.077ns
+    Source Clock Delay      (SCD):    0.724ns
+    Clock Pessimism Removal (CPR):    0.208ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y18                                               0.000     0.000 r  CLK (IN)
+                         net (fo=0)                   0.000     0.000    CLK
+    Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
+                         net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
+                         BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         FDCE                                         r  uart_inst/echo_enabled_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/echo_enabled_reg/Q
+                         net (fo=4, unplaced)         0.131     0.996    uart_inst/echo_enabled
+                         LUT3 (Prop_lut3_I2_O)        0.098     1.094 r  uart_inst/internal_tx_data[8]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.094    uart_inst/internal_tx_data[8]_i_1_n_0
+                         FDCE                                         r  uart_inst/internal_tx_data_reg[8]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    Y18                                               0.000     0.000 r  CLK (IN)
+                         net (fo=0)                   0.000     0.000    CLK
+    Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
+                         net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
+                         BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
+                         net (fo=777, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
+                         FDCE                                         r  uart_inst/internal_tx_data_reg[8]/C
+                         clock pessimism             -0.208     0.869    
+                         FDCE (Hold_fdce_C_D)         0.091     0.960    uart_inst/internal_tx_data_reg[8]
+  -------------------------------------------------------------------
+                         required time                         -0.960    
+                         arrival time                           1.094    
+  -------------------------------------------------------------------
+                         slack                                  0.134    
 
 Slack (MET) :             0.136ns  (arrival time - required time)
   Source:                 uart_inst/tx_bit_index_reg[3]/C
@@ -9767,7 +9818,7 @@ Slack (MET) :             0.136ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[3]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/tx_bit_index_reg[3]/Q
@@ -9784,7 +9835,7 @@ Slack (MET) :             0.136ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[3]/C
                          clock pessimism             -0.208     0.869    
                          FDCE (Hold_fdce_C_D)         0.091     0.960    uart_inst/tx_bit_index_reg[3]
@@ -9818,7 +9869,7 @@ Slack (MET) :             0.138ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    FC/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    FC/CLK_IBUF_BUFG
                          FDPE                                         r  FC/CUENTITAS_reg[0]/C
   -------------------------------------------------------------------    -------------------
                          FDPE (Prop_fdpe_C_Q)         0.141     0.865 f  FC/CUENTITAS_reg[0]/Q
@@ -9835,7 +9886,7 @@ Slack (MET) :             0.138ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    FC/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    FC/CLK_IBUF_BUFG
                          FDPE                                         r  FC/CUENTITAS_reg[0]/C
                          clock pessimism             -0.208     0.869    
                          FDPE (Hold_fdpe_C_D)         0.091     0.960    FC/CUENTITAS_reg[0]
@@ -9869,7 +9920,7 @@ Slack (MET) :             0.138ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[1]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/tx_bit_index_reg[1]/Q
@@ -9886,7 +9937,7 @@ Slack (MET) :             0.138ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[1]/C
                          clock pessimism             -0.208     0.869    
                          FDCE (Hold_fdce_C_D)         0.091     0.960    uart_inst/tx_bit_index_reg[1]
@@ -9920,7 +9971,7 @@ Slack (MET) :             0.138ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[1]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/tx_bit_index_reg[1]/Q
@@ -9937,7 +9988,7 @@ Slack (MET) :             0.138ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[2]/C
                          clock pessimism             -0.208     0.869    
                          FDCE (Hold_fdce_C_D)         0.091     0.960    uart_inst/tx_bit_index_reg[2]
@@ -9948,10 +9999,10 @@ Slack (MET) :             0.138ns  (arrival time - required time)
                          slack                                  0.138    
 
 Slack (MET) :             0.139ns  (arrival time - required time)
-  Source:                 uart_inst/echo_enabled_reg/C
+  Source:                 uart_inst/FSM_onehot_rx_state_reg[3]/C
                             (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            uart_inst/internal_tx_data_reg[8]/D
-                            (rising edge-triggered cell FDCE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            uart_inst/FSM_onehot_rx_state_reg[0]/D
+                            (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             sys_clk_pin
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
@@ -9971,14 +10022,14 @@ Slack (MET) :             0.139ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
-                         FDCE                                         r  uart_inst/echo_enabled_reg/C
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         FDCE                                         r  uart_inst/FSM_onehot_rx_state_reg[3]/C
   -------------------------------------------------------------------    -------------------
-                         FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/echo_enabled_reg/Q
-                         net (fo=7, unplaced)         0.136     1.001    uart_inst/echo_enabled
-                         LUT3 (Prop_lut3_I2_O)        0.098     1.099 r  uart_inst/internal_tx_data[8]_i_1/O
-                         net (fo=1, unplaced)         0.000     1.099    uart_inst/internal_tx_data[8]_i_1_n_0
-                         FDCE                                         r  uart_inst/internal_tx_data_reg[8]/D
+                         FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/FSM_onehot_rx_state_reg[3]/Q
+                         net (fo=7, unplaced)         0.136     1.001    uart_inst/FSM_onehot_rx_state_reg_n_0_[3]
+                         LUT3 (Prop_lut3_I2_O)        0.098     1.099 r  uart_inst/FSM_onehot_rx_state[0]_i_1/O
+                         net (fo=1, unplaced)         0.000     1.099    uart_inst/FSM_onehot_rx_state[0]_i_1_n_0
+                         FDPE                                         r  uart_inst/FSM_onehot_rx_state_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock sys_clk_pin rise edge)
@@ -9988,10 +10039,10 @@ Slack (MET) :             0.139ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
-                         FDCE                                         r  uart_inst/internal_tx_data_reg[8]/C
+                         net (fo=777, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
+                         FDPE                                         r  uart_inst/FSM_onehot_rx_state_reg[0]/C
                          clock pessimism             -0.208     0.869    
-                         FDCE (Hold_fdce_C_D)         0.091     0.960    uart_inst/internal_tx_data_reg[8]
+                         FDPE (Hold_fdpe_C_D)         0.091     0.960    uart_inst/FSM_onehot_rx_state_reg[0]
   -------------------------------------------------------------------
                          required time                         -0.960    
                          arrival time                           1.099    
@@ -10022,7 +10073,7 @@ Slack (MET) :             0.139ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[0]/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 f  uart_inst/tx_bit_index_reg[0]/Q
@@ -10039,7 +10090,7 @@ Slack (MET) :             0.139ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/tx_bit_index_reg[0]/C
                          clock pessimism             -0.208     0.869    
                          FDCE (Hold_fdce_C_D)         0.091     0.960    uart_inst/tx_bit_index_reg[0]
@@ -10048,55 +10099,6 @@ Slack (MET) :             0.139ns  (arrival time - required time)
                          arrival time                           1.099    
   -------------------------------------------------------------------
                          slack                                  0.139    
-
-Slack (MET) :             0.140ns  (arrival time - required time)
-  Source:                 uart_inst/rx_data_sync_reg/C
-                            (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            uart_inst/rx_data_reg/D
-                            (rising edge-triggered cell FDPE clocked by sys_clk_pin  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Path Group:             sys_clk_pin
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
-  Data Path Delay:        0.268ns  (logic 0.141ns (52.621%)  route 0.127ns (47.379%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.145ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.077ns
-    Source Clock Delay      (SCD):    0.724ns
-    Clock Pessimism Removal (CPR):    0.208ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    Y18                                               0.000     0.000 r  CLK (IN)
-                         net (fo=0)                   0.000     0.000    CLK
-    Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
-                         net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
-                         BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
-                         FDPE                                         r  uart_inst/rx_data_sync_reg/C
-  -------------------------------------------------------------------    -------------------
-                         FDPE (Prop_fdpe_C_Q)         0.141     0.865 r  uart_inst/rx_data_sync_reg/Q
-                         net (fo=1, unplaced)         0.127     0.992    uart_inst/rx_data_sync
-                         FDPE                                         r  uart_inst/rx_data_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock sys_clk_pin rise edge)
-                                                      0.000     0.000 r  
-    Y18                                               0.000     0.000 r  CLK (IN)
-                         net (fo=0)                   0.000     0.000    CLK
-    Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
-                         net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
-                         BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    uart_inst/CLK_IBUF_BUFG
-                         FDPE                                         r  uart_inst/rx_data_reg/C
-                         clock pessimism             -0.208     0.869    
-                         FDPE (Hold_fdpe_C_D)        -0.017     0.852    uart_inst/rx_data_reg
-  -------------------------------------------------------------------
-                         required time                         -0.852    
-                         arrival time                           0.992    
-  -------------------------------------------------------------------
-                         slack                                  0.140    
 
 
 
@@ -10184,7 +10186,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10201,7 +10203,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][0]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10241,7 +10243,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10258,7 +10260,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][10]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10298,7 +10300,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10315,7 +10317,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][11]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10355,7 +10357,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10372,7 +10374,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][12]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10412,7 +10414,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10429,7 +10431,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][13]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10469,7 +10471,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10486,7 +10488,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][14]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10526,7 +10528,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10543,7 +10545,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][15]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10583,7 +10585,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10600,7 +10602,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][16]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10640,7 +10642,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10657,7 +10659,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][17]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10697,7 +10699,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.427     1.427 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646     2.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081     2.153 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584     2.737    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.379     3.116 f  uart_inst/prog_mode_reg/Q
@@ -10714,7 +10716,7 @@ Slack (MET) :             7.682ns  (required time - arrival time)
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][18]/C  (IS_INVERTED)
                          clock pessimism              0.102    12.592    
                          clock uncertainty           -0.035    12.557    
@@ -10760,7 +10762,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -10777,7 +10779,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][0]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -10817,7 +10819,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -10834,7 +10836,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][10]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -10874,7 +10876,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -10891,7 +10893,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][11]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -10931,7 +10933,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -10948,7 +10950,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][12]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -10988,7 +10990,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -11005,7 +11007,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][13]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -11045,7 +11047,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -11062,7 +11064,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][14]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -11102,7 +11104,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -11119,7 +11121,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][15]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -11159,7 +11161,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -11176,7 +11178,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][16]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -11216,7 +11218,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -11233,7 +11235,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][17]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -11273,7 +11275,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.264    20.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320    20.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026    20.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114    20.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141    20.865 f  uart_inst/prog_mode_reg/Q
@@ -11290,7 +11292,7 @@ Slack (MET) :             10.739ns  (arrival time - required time)
     Y18                  IBUF (Prop_ibuf_I_O)         0.452    10.452 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337    10.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029    10.818 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259    11.077    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][18]/C  (IS_INVERTED)
                          clock pessimism             -0.208    10.869    
                          clock uncertainty            0.035    10.904    
@@ -11332,7 +11334,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -12239,7 +12241,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -13146,7 +13148,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -14053,7 +14055,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -14960,7 +14962,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -15867,7 +15869,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -16774,7 +16776,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -17681,7 +17683,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -18581,7 +18583,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -19477,7 +19479,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -20568,7 +20570,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -21492,7 +21494,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -22416,7 +22418,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -23340,7 +23342,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -24264,7 +24266,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -25188,7 +25190,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -26112,7 +26114,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -27036,7 +27038,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -27953,7 +27955,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -28866,7 +28868,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.427    11.427 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.646    12.072    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.081    12.153 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.584    12.737    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[7][31]/C  (IS_INVERTED)
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.384    13.121 r  RU/RU_reg[7][31]/Q
@@ -29758,7 +29760,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -29789,7 +29791,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -29822,7 +29824,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -29855,7 +29857,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -29888,7 +29890,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -29921,7 +29923,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -29954,7 +29956,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -29987,7 +29989,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -30020,7 +30022,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -30053,7 +30055,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.264     0.264 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.320     0.584    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.026     0.610 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.114     0.724    uart_inst/CLK_IBUF_BUFG
                          FDCE                                         r  uart_inst/prog_mode_reg/C
   -------------------------------------------------------------------    -------------------
                          FDCE (Prop_fdce_C_Q)         0.141     0.865 r  uart_inst/prog_mode_reg/Q
@@ -30072,8 +30074,8 @@ Path Group:  (none)
 From Clock:  
   To Clock:  sys_clk_pin
 
-Max Delay          1511 Endpoints
-Min Delay          1511 Endpoints
+Max Delay          1512 Endpoints
+Min Delay          1512 Endpoints
 --------------------------------------------------------------------------------------
 
 
@@ -30103,7 +30105,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -30992,7 +30994,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[0][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -31019,7 +31021,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -31908,7 +31910,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[10][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -31935,7 +31937,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -32824,7 +32826,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[11][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -32851,7 +32853,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -33740,7 +33742,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[12][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -33767,7 +33769,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -34656,7 +34658,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[13][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -34683,7 +34685,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -35572,7 +35574,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[14][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -35599,7 +35601,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -36488,7 +36490,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[15][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -36515,7 +36517,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -37404,7 +37406,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[1][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -37431,7 +37433,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -38320,7 +38322,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDCE                                         r  RU/RU_reg[2][0]/C  (IS_INVERTED)
 
 Slack:                    inf
@@ -38347,7 +38349,7 @@ Slack:                    inf
     F20                                               0.000     0.000 r  RESET (IN)
                          net (fo=0)                   0.000     0.000    RESET
     F20                  IBUF (Prop_ibuf_I_O)         1.419     1.419 r  RESET_IBUF_inst/O
-                         net (fo=6, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
+                         net (fo=9, unplaced)         0.646     2.065    uart_inst/RESET_IBUF
                          LUT2 (Prop_lut2_I1_O)        0.105     2.170 f  uart_inst/RU[15][31]_i_3/O
                          net (fo=675, unplaced)       0.722     2.892    im_inst/AOPB3_0
                          LUT5 (Prop_lut5_I4_O)        0.105     2.997 r  im_inst/AOPB3_i_1/O
@@ -39236,7 +39238,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         1.361    11.361 f  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.613    11.974    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.077    12.051 f  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.439    12.490    RU/CLK_IBUF_BUFG
                          FDPE                                         r  RU/RU_reg[3][0]/C  (IS_INVERTED)
 
 
@@ -39275,7 +39277,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39308,7 +39310,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39341,7 +39343,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39374,7 +39376,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39407,7 +39409,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39440,7 +39442,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39473,7 +39475,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39506,7 +39508,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39539,7 +39541,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 Slack:                    inf
@@ -39572,7 +39574,7 @@ Slack:                    inf
     Y18                  IBUF (Prop_ibuf_I_O)         0.452     0.452 r  CLK_IBUF_inst/O
                          net (fo=1, unplaced)         0.337     0.789    CLK_IBUF
                          BUFG (Prop_bufg_I_O)         0.029     0.818 r  CLK_IBUF_BUFG_inst/O
-                         net (fo=776, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
+                         net (fo=777, unplaced)       0.259     1.077    im_inst/CLK_IBUF_BUFG
                          RAMB36E1                                     r  im_inst/im_reg_1_0/CLKARDCLK
 
 

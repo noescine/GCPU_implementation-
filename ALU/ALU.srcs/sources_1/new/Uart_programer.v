@@ -53,10 +53,11 @@ module UART_Controller #(
                      MSG_CRLF       = 8'h0A;
     
     // Registros TX
+    reg echo_load = 0;
     reg [1:0] int_tx_len;
     reg [15:0] tx_counter;
     reg [3:0] tx_bit_index;
-    reg [9:0] tx_shift;
+    reg [8:0] tx_shift;
     reg [7:0] tx_buffer [0:3];
     reg [1:0] byte_index;
     reg [1:0] bytes_to_send;
@@ -70,6 +71,8 @@ module UART_Controller #(
     reg [7:0] rx_byte;
     reg rx_dv;
     reg [2:0] rx_state;
+    reg echo_pending;
+
     
     // FSM y control
     reg [1:0] state;
@@ -97,7 +100,6 @@ module UART_Controller #(
             rx_clock_count <= 0;
             rx_bit_index <= 0;
             rx_byte <= 0;
-            rx_dv <= 0;
             data_out <= 0;
             wr_en <= 0;
             rx_data_sync <= 1;
@@ -115,6 +117,8 @@ module UART_Controller #(
                     if (!rx_data) begin
                         rx_state <= 1;
                         rx_clock_count <= 0;
+                    end else if (echo_load)begin
+                        echo_pending <= 0;
                     end
                 end
                 
@@ -148,10 +152,14 @@ module UART_Controller #(
                 
                 3: begin // Bit de stop
                     if (rx_clock_count == BAUD_TICK-1) begin
-                        rx_dv <= 1;
                         data_out <= rx_byte;
                         wr_en <= 1;
                         rx_state <= 0;
+                        if (echo_enabled && state == NORMAL) begin
+                            if (!echo_load)begin
+                                echo_pending <= 1;
+                            end
+                        end
                     end else begin
                         rx_clock_count <= rx_clock_count + 1;
                     end
@@ -168,7 +176,7 @@ module UART_Controller #(
             tx <= 1;
             tx_counter <= 0;
             tx_bit_index <= 0;
-            tx_shift <= 10'b1111111111;
+            tx_shift <= 9'b111111111;
             tx_busy <= 0;
             byte_index <= 0;
             tx_done <= 0;
@@ -185,7 +193,7 @@ module UART_Controller #(
                     tx_buffer[1] <= internal_tx_data[15:8];
                     tx_buffer[2] <= internal_tx_data[23:16];
                     tx_buffer[3] <= internal_tx_data[31:24];
-                    tx_shift <= {1'b1, internal_tx_data[7:0], 1'b0};
+                    tx_shift <= {internal_tx_data[7:0], 1'b0};
                     tx_busy <= 1;
                     tx_bit_index <= 0;
                     tx_counter <= 0;
@@ -197,34 +205,34 @@ module UART_Controller #(
                     tx_buffer[1] <= tx_data[15:8];
                     tx_buffer[2] <= tx_data[23:16];
                     tx_buffer[3] <= tx_data[31:24];
-                    tx_shift <= {1'b1, tx_data[7:0], 1'b0};
+                    tx_shift <= {tx_data[7:0], 1'b0};
                     tx_busy <= 1;
                     tx_bit_index <= 0;
                     tx_counter <= 0;
                     bytes_to_send <= tx_len;
                     byte_index <= 0;
-                end else if (echo_enabled && rx_dv && state == NORMAL) begin
+                end else if (echo_pending) begin
                     // Eco de caracteres (solo en modo normal)
                     tx_buffer[0] <= current_rx_byte;
                     tx_buffer[1] <= 0;
                     tx_buffer[2] <= 0;
                     tx_buffer[3] <= 0;
-                    tx_shift <= {1'b1, current_rx_byte, 1'b0};
+                    tx_shift <= {current_rx_byte, 1'b0};
                     tx_busy <= 1;
                     tx_bit_index <= 0;
                     tx_counter <= 0;
                     bytes_to_send <= 0; // Solo 1 byte
                     byte_index <= 0;
+                    echo_load <= 1;
                 end
             end else if (tx_busy) begin
                 if (tx_counter == BAUD_TICK - 1) begin
                     tx_counter <= 0;
                     tx <= tx_shift[0];
-                    tx_shift <= {1'b0, tx_shift[9:1]};
+                    tx_shift <= {1'b1, tx_shift[8:1]};
                     if (tx_bit_index == 9) begin
                         if (byte_index == bytes_to_send) begin
                             tx_busy <= 0;
-                            rx_dv <= 0;
                             tx_done <= 1;
                         end else begin
                             byte_index <= byte_index + 1;
@@ -233,6 +241,7 @@ module UART_Controller #(
                         end
                     end else begin
                         tx_bit_index <= tx_bit_index + 1;
+                        echo_load <=0;
                     end
                 end else begin
                     tx_counter <= tx_counter + 1;

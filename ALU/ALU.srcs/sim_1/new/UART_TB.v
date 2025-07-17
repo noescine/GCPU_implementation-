@@ -102,8 +102,9 @@ module UART_Controller_tb;
         // Verificar eco enviando un carácter
         uart_send_byte("H");
         uart_send_byte("O");
-        wait(tx == 0); // Start bit del eco
-        #(BIT_PERIOD*10); // Esperar byte de eco
+        uart_send_byte("L");
+        uart_send_byte("A");
+        #(BIT_PERIOD*10*4); // Esperar byteS de eco
         
         $display("Eco activado correctamente");
         #1000;

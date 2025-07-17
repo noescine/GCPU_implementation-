@@ -1,70 +1,10 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="33692" HostCore="20" HostMemory="016849256448">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="27960" HostCore="20" HostMemory="016849256448">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="1168" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="25124" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="35540" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="28660" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="7712" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="17276" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="14604" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="18076" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="4460" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="21788" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="2432" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="5312" HostCore="20" HostMemory="016849256448">
-    </Process>
-</ProcessHandle>
-<?xml version="1.0"?>
-<ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="12732" HostCore="20" HostMemory="016849256448">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="20944" HostCore="20" HostMemory="016849256448">
     </Process>
 </ProcessHandle>
