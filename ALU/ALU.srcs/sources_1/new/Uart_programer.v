@@ -108,9 +108,7 @@ module UART_Controller #(
             rx_data <= rx_data_sync;
             
             // Limpieza de flags
-            rx_dv <= 0;
             wr_en <= 0;
-            
             // Máquina de estados de recepción
             case (rx_state)
                 0: begin // Estado idle, esperando start bit
@@ -193,8 +191,7 @@ module UART_Controller #(
                     tx_counter <= 0;
                     bytes_to_send <= 3;
                     byte_index <= 0;
-                end 
-                else if (tx_start) begin
+                end else if (tx_start) begin
                     // Transmisión externa
                     tx_buffer[0] <= tx_data[7:0];
                     tx_buffer[1] <= tx_data[15:8];
@@ -206,8 +203,7 @@ module UART_Controller #(
                     tx_counter <= 0;
                     bytes_to_send <= tx_len;
                     byte_index <= 0;
-                end
-                else if (echo_enabled && rx_dv && state == NORMAL) begin
+                end else if (echo_enabled && rx_dv && state == NORMAL) begin
                     // Eco de caracteres (solo en modo normal)
                     tx_buffer[0] <= current_rx_byte;
                     tx_buffer[1] <= 0;
@@ -220,16 +216,15 @@ module UART_Controller #(
                     bytes_to_send <= 0; // Solo 1 byte
                     byte_index <= 0;
                 end
-            end 
-            else if (tx_busy) begin
+            end else if (tx_busy) begin
                 if (tx_counter == BAUD_TICK - 1) begin
                     tx_counter <= 0;
                     tx <= tx_shift[0];
-                    tx_shift <= {1'b1, tx_shift[9:1]};
-                    
+                    tx_shift <= {1'b0, tx_shift[9:1]};
                     if (tx_bit_index == 9) begin
                         if (byte_index == bytes_to_send) begin
                             tx_busy <= 0;
+                            rx_dv <= 0;
                             tx_done <= 1;
                         end else begin
                             byte_index <= byte_index + 1;
@@ -242,6 +237,8 @@ module UART_Controller #(
                 end else begin
                     tx_counter <= tx_counter + 1;
                 end
+            end else begin
+                tx <= 1;
             end
         end
     end
@@ -262,12 +259,10 @@ module UART_Controller #(
             if (seq_buffer == SEQ_PROG && !prog_mode) begin
                 seq_prog_detected <= 1;
                 seq_buffer <= 32'hFFFFFFFF;
-            end
-            else if (seq_buffer == SEQ_END && prog_mode) begin
+            end else if (seq_buffer == SEQ_END && prog_mode) begin
                 seq_end_detected <= 1;
                 seq_buffer <= 0;
-            end
-            else if (rx_dv) begin
+            end else if (wr_en) begin
                 seq_buffer <= {seq_buffer[23:0], current_rx_byte};
             end
         end
@@ -283,7 +278,7 @@ module UART_Controller #(
             at_cmd_detected <= 0;
             at_cmd_index <= 0;
             echo_enabled <= 0;
-        end else if (rx_dv && (state == NORMAL)) begin
+        end else if (wr_en && (state == NORMAL)) begin
             case (at_parser_state)
                 0: begin // Esperando 'A'
                     if (current_rx_byte == "A" || current_rx_byte == "a")  begin

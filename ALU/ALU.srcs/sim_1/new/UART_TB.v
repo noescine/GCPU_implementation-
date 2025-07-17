@@ -100,7 +100,8 @@ module UART_Controller_tb;
         #(BIT_PERIOD*10*5); // Esperar 3 bytes (OK\r)
         
         // Verificar eco enviando un carácter
-        uart_send_byte("Z");
+        uart_send_byte("H");
+        uart_send_byte("O");
         wait(tx == 0); // Start bit del eco
         #(BIT_PERIOD*10); // Esperar byte de eco
         
