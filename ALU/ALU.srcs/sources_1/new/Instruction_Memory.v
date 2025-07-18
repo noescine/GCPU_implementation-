@@ -1,44 +1,37 @@
-//////////////////////////////////////////////////////////////////////////////////
-// Módulo: Instruction_Memory
-// Memoria de X-KiB programable vía UART con modo de programación
-//////////////////////////////////////////////////////////////////////////////////
 module Instruction_Memory #(
-    parameter MEM_SIZE = 5 // Tamaño de la memoria en KiB
+    parameter MEM_SIZE_KB = 32  // 32 KiB
 )(
-    input clk,               // Reloj
-    input wr_en,             // Enable de escritura
-    input [7:0] data_in,     // Byte recibido desde UART
-    input prog_mode,         // Señal para entrar en modo programación
-    input [31:0] addrIM,     // Dirección de lectura/ESCRITURA
-    output reg [31:0] inst   // Instrucción leída
+    input clk,
+    input wr_en,
+    input [31:0] data_in,  // Cambiado a 32 bits para escritura
+    input prog_mode,
+    input [31:0] addrIM,
+    output reg [31:0] inst
 );
 
-    // Memoria de X KiB
-    reg [7:0] im [0:(MEM_SIZE * 1024) - 1];
-
-    // Lógica de escritura en memoria
+    // Calculamos el tamaño en palabras de 32 bits
+    localparam MEM_WORDS = (MEM_SIZE_KB * 1024) / 4;
+    
+    // Memoria organizada en palabras de 32 bits
+    (* ram_style = "block" *) reg [31:0] mem [0:MEM_WORDS-1];
+    
+    // Dirección de programa en palabras (no en bytes)
+    reg [31:0] prog_addr = 0;
+    
     always @(posedge clk) begin
-        if (wr_en) begin
-            // Escribir byte en la memoria
-            im[addrIM] <= data_in;
+        if (prog_mode && wr_en) begin
+            mem[prog_addr] <= data_in;
+            prog_addr <= prog_addr + 1;
         end
     end
-
-    // Lógica de lectura de memoria
+    
+    // Lectura alineada a palabras de 32 bits
     always @(posedge clk) begin
-        if (prog_mode) begin
-            inst <= 32'b0;   // Enviar ceros mientras se programa
-        end
-        else begin
-            // Leer 4 bytes consecutivos para formar una instrucción de 32 bits
-            // Verificar que las direcciones estén dentro de los límites de la memoria
-            if (addrIM + 3 < (MEM_SIZE * 1024)) begin
-                inst <= {im[addrIM], im[addrIM + 1], im[addrIM + 2], im[addrIM + 3]};
-            end
-            else begin
-                inst <= 32'b0; // Si la dirección está fuera de los límites, devolver 0
-            end
+        if (!prog_mode) begin
+            // Nota: addrIM[1:0] se ignoran (dirección debe ser múltiplo de 4)
+            inst <= mem[addrIM[31:2]];  // Dividir entre 4
+        end else begin
+            inst <= 32'h0;
         end
     end
-
 endmodule

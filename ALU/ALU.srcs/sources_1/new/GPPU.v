@@ -98,7 +98,7 @@ module GPPU(
     );
 
     Instruction_Memory #(
-        .MEM_SIZE(5)
+        .MEM_SIZE_KB(32)
     ) im_inst (
         .clk(CLK),
         .wr_en(wr_en),
