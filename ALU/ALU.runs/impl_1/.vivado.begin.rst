@@ -163,3 +163,88 @@
     <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="11080" HostCore="20" HostMemory="016849256448">
     </Process>
 </ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="30804" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="7024" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="15124" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="25096" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="17196" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="34800" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="28008" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="34188" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="25448" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="24948" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="19604" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="22736" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="19940" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="16152" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="19320" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="8340" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="Ciudad Maderas" Host="DESKTOP-T2K4A01" Pid="16608" HostCore="20" HostMemory="016849256448">
+    </Process>
+</ProcessHandle>

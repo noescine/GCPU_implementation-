@@ -43,28 +43,30 @@ module UART_Controller #(
     localparam [31:0] SEQ_PROG = 32'hA55AC33C;
     localparam [31:0] SEQ_END = 32'h00000000;
     
-    // Estados FSM principal
-    localparam [1:0] NORMAL     = 2'b00,
-                    PROGRAMMING = 2'b01,
-                    AT_COMMAND  = 2'b10;
+	// Estados FSM principal
+	localparam [2:0] NORMAL     = 3'b000,
+					 PROGRAMMING = 3'b001,
+					 AT_COMMAND  = 3'b010,
+					 SEND_STRT   = 3'b011,
+					 SEND_END    = 3'b100;
     
     // Comandos AT
     localparam [7:0] AT_EC0 = "0", AT_EC1 = "1";
     
     // Mensajes del sistema
-    localparam [31:0]	MSG_PROG_MOD1	= "STRT",
+    localparam [31:0]	MSG_PROG_MOD1	= 32'h53545254,
 						MSG_PROG_MOD2	= "WAIT",
-						MSG_END_MOD    	= "RDY",
-						MSG_CRLF       	= 8'h0A;
+						MSG_END_MOD    	= {"RDY",8'h0},
+						MSG_CRLF       	= 32'h0A000000;
     
     // Registros TX
     reg echo_load = 0;
-    reg [15:0] tx_counter;
+    reg [15:0] tx_counter = 0;
     reg [3:0] tx_bit_index;
-    reg [8:0] tx_shift;
-    reg [7:0] tx_buffer [0:3];
+    reg [8:0] tx_shift = 0;
+    reg [7:0] tx_buffer [0:2];
     reg [1:0] byte_index;
-    reg [1:0] bytes_to_send;
+    reg [1:0] bytes_to_send = 0;
     reg [31:0] internal_tx_data = 0;
     reg internal_tx_start = 0;
     
@@ -75,17 +77,17 @@ module UART_Controller #(
     reg [7:0] rx_byte;
     reg rx_dv;
     reg [2:0] rx_state;
-    reg echo_pending;
+    reg echo_pending=0;
 
     
     // FSM y control
-    reg [1:0] state;
+    reg [2:0] state;
     reg [31:0] seq_buffer;
     reg seq_prog_detected, seq_end_detected;
 	reg [1:0] prog_byte_count = 0;
     reg [31:0] prog_buffer;
     // Sistema de eco
-    reg echo_enabled;
+    reg echo_enabled = 0;
     reg at_cmd_detected;
     reg [2:0] at_parser_state;
     
@@ -113,8 +115,11 @@ module UART_Controller #(
         end else begin
 			if (echo_load) begin
 				echo_pending <= 0;
-            end						// Sincronización de la entrada RX
-            
+            end						
+			if (!tx_busy && tx_done) begin
+				prog_wr_en <= 0;
+			end
+			// Sincronización de la entrada RX
 			rx_data_sync <= rx;
             rx_data <= rx_data_sync;
             // Limpieza de flags
@@ -158,18 +163,18 @@ module UART_Controller #(
                 
                 3: begin // Bit de stop
                     if (rx_clock_count == BAUD_TICK-1) begin
-                        if (state == PROGRAMMING) begin
+						if (state == PROGRAMMING) begin
 							case(prog_byte_count)
-								0: prog_buffer[31:24] <= rx_byte;  // Primer byte -> bits [31:24]
-								1: prog_buffer[23:16] <= rx_byte;  // Segundo byte -> bits [23:16]
-								2: prog_buffer[15:8]  <= rx_byte;  // Tercer byte -> bits [15:8]
+								0: prog_buffer[31:24] <= rx_byte;
+								1: prog_buffer[23:16] <= rx_byte;
+								2: prog_buffer[15:8]  <= rx_byte;
 								3: begin
-									prog_buffer[7:0]   <= rx_byte;  // Cuarto byte -> bits [7:0]
-									prog_data <= prog_buffer;       // Ya está en orden little-endian
-									prog_wr_en <= 1;
+									prog_buffer[7:0]   <= rx_byte;
+									prog_data <= prog_buffer;
+									prog_wr_en <= 1;  // Señal de palabra completa
 								end
 							endcase
-							prog_byte_count <= (prog_byte_count == 3) ? 0 : prog_byte_count + 1;               
+							prog_byte_count <= (prog_byte_count == 3) ? 0 : prog_byte_count + 1;
 						end else begin												//que hacer si no estamos en modo programcion				
 							prog_wr_en <= 0;
 							data_out <= rx_byte;
@@ -211,36 +216,33 @@ module UART_Controller #(
             if (!tx_busy) begin
                 if (internal_tx_start) begin
                     // Transmisión interna (comandos del sistema) 
-                    tx_buffer[3] <= internal_tx_data[7:0];		// se transmite MSB-->LSB
-                    tx_buffer[2] <= internal_tx_data[15:8];
-                    tx_buffer[1] <= internal_tx_data[23:16];
-                    tx_buffer[0] <= internal_tx_data[31:24];
+                    tx_buffer[2] <= internal_tx_data[7:0];		// se transmite MSB-->LSB
+                    tx_buffer[1] <= internal_tx_data[15:8];
+                    tx_buffer[0] <= internal_tx_data[23:16];
                     tx_shift <= {internal_tx_data[31:24], 1'b0};
                     tx_busy <= 1;
                     tx_bit_index <= 0;
                     tx_counter <= 0;
-                    bytes_to_send <= 3;
+                    bytes_to_send <= 2;
                     byte_index <= 0;
-                end else if (tx_start) begin
+				end else if (tx_start) begin
                     // Transmisión externa
-                    tx_buffer[3] <= tx_data[7:0];				// se transmite MSB-->LSB
-                    tx_buffer[2] <= tx_data[15:8];
-                    tx_buffer[1] <= tx_data[23:16];
-                    tx_buffer[0] <= tx_data[31:24];
+                    tx_buffer[2] <= tx_data[7:0];				// se transmite MSB-->LSB
+                    tx_buffer[1] <= tx_data[15:8];
+                    tx_buffer[0] <= tx_data[23:16];
                     tx_shift <= {tx_data[31:24], 1'b0};
                     tx_busy <= 1;
                     tx_bit_index <= 0;
                     tx_counter <= 0;
                     bytes_to_send <= tx_len;
                     byte_index <= 0;
-                end else if (echo_pending && echo_enabled) begin
-					// Eco de caracteres (baja prioridad)
-					tx_buffer[0] <= current_rx_byte;		// se transmiten los bytes como se reciben MSB-->LSB
+                end else if (echo_pending && echo_enabled && state == NORMAL) begin
+					// Eco de caracteres (baja prioridad)	// se transmiten los bytes como se reciben MSB-->LSB
 					tx_shift <= {current_rx_byte, 1'b0};
 					tx_busy <= 1;
 					tx_bit_index <= 0;
 					tx_counter <= 0;
-					bytes_to_send <= 1; // Solo 1 byte (índice 0)
+					bytes_to_send <= 0; // Solo 1 byte (índice 0)
 					byte_index <= 0;
 					echo_load <= 1;      // Clear del pending
 				end
@@ -250,12 +252,12 @@ module UART_Controller #(
                     tx <= tx_shift[0];
                     tx_shift <= {1'b1, tx_shift[8:1]};
                     if (tx_bit_index == 9) begin
-                        if (byte_index == bytes_to_send) begin
+                        if (byte_index == bytes_to_send + 1) begin
                             tx_busy <= 0;
                             tx_done <= 1;
                         end else begin
                             byte_index <= byte_index + 1;
-                            tx_shift <= {1'b1, tx_buffer[byte_index + 1], 1'b0};
+                            tx_shift <= {tx_buffer[byte_index], 1'b0};
                             tx_bit_index <= 0;
                         end
                     end else begin
@@ -281,13 +283,15 @@ module UART_Controller #(
 		end else begin
 			seq_prog_detected <= 0;
 			seq_end_detected <= 0;
-			if (wr_en) begin
-				seq_buffer <= {seq_buffer[23:0], data_out};
+			if (wr_en || prog_wr_en) begin
+				seq_buffer <= {seq_buffer[23:0], rx_byte};
 			end
 			if (seq_buffer == SEQ_PROG && state == NORMAL) begin
 				seq_prog_detected <= 1;
+				seq_buffer <= 32'hFFFFFFFF;
 			end else if (seq_buffer == SEQ_END && state == PROGRAMMING) begin
 				seq_end_detected <= 1;
+				seq_buffer <= 32'hFFFFFFFF;
 			end
 		end
 	end
@@ -321,53 +325,56 @@ module UART_Controller #(
 		end 
 	end
     // =============================================
-    // 6. FSM principal
-    // =============================================
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            internal_tx_start <= 0;
-            state <= NORMAL;
-            prog_mode <= 0;
-            internal_tx_data <= 0;
-        end else begin
-        internal_tx_start <= 0;
-            case (state)
-                NORMAL: begin
-                    if (seq_prog_detected) begin
-                        // Transición inmediata a modo programación
-                        prog_mode <= 1;
-                        state <= PROGRAMMING;
-						internal_tx_data <= MSG_PROG_MOD1;
-                    end else if (at_cmd_detected) begin
-                        state <= AT_COMMAND;
-                        // Respuesta basada en el estado de echo_enabled
-                        if (echo_enabled) begin
-                            internal_tx_data <= {"E","1",8'h0A,8'h0D};  // "EC1\r\n"
-                        end else begin
-                            internal_tx_data <= {"E","0",8'h0A,8'h0D};  // "EC0\r\n"
-                        end
-                        internal_tx_start <= 1;  // Iniciar transmisión
-                    end
-                end
-                
-                PROGRAMMING: begin
-					internal_tx_start <= 1;		//durante el modo programacion nadie mas puede uar el tx UART
-					internal_tx_data <= MSG_PROG_MOD2;
-                    if (seq_end_detected) begin
-                        // Salida inmediata del modo programación
-                        prog_mode <= 0;
-                        state <= NORMAL;
-                        internal_tx_data <= MSG_END_MOD;
-                    end
-                end
-                
-                AT_COMMAND: begin           //ESPERA LA TRANSMISION DEL OK
-                    if (!tx_busy) begin
-                        state <= NORMAL;
-                    end
-                end
-            endcase
-        end
-    end
+	// 6. FSM principal
+	// =============================================
+	always @(posedge clk or posedge reset) begin
+		if (reset) begin
+			internal_tx_start <= 0;
+			state <= NORMAL;
+			prog_mode <= 0;
+			internal_tx_data <= 0;
+		end else begin
+			internal_tx_start <= 0;  // Reset en cada ciclo
+			case (state)
+				NORMAL: begin
+					if (seq_prog_detected) begin
+						state <= SEND_STRT;
+						internal_tx_data <= MSG_PROG_MOD1;  // "STRT"
+						internal_tx_start <= 1;
+					end else if (at_cmd_detected) begin
+						state <= AT_COMMAND;
+						internal_tx_data <= (echo_enabled) ? 32'h45310D0A : 32'h45300D0A; // "EC1\r\n" o "EC0\r\n"
+						internal_tx_start <= 1;
+					end
+				end
+				SEND_STRT: begin
+					if (!tx_busy) begin
+						state <= PROGRAMMING;
+						prog_mode <= 1;
+					end
+				end
+				PROGRAMMING: begin
+					if (seq_end_detected) begin
+						state <= SEND_END;
+						internal_tx_data <= MSG_END_MOD;  // "RDY"
+						internal_tx_start <= 1;
+					end
+				end
+				
+				SEND_END: begin
+					if (!tx_busy) begin
+						prog_mode <= 0;
+						state <= NORMAL;
+					end
+				end
+				
+				AT_COMMAND: begin
+					if (!tx_busy) begin
+						state <= NORMAL;
+					end
+				end
+			endcase
+		end
+	end
 
 endmodule

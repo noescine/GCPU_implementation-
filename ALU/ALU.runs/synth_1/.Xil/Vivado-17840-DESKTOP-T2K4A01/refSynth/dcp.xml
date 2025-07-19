@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Checkpoint Version="23" Minor="0">
+	<BUILD_NUMBER Name="5239630"/>
+	<FULL_BUILD Name="SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024"/>
+	<PRODUCT Name="Vivado v2024.2 (64-bit)"/>
+	<Part Name="xc7a35tfgg484-2"/>
+	<FeatureSet Name="FeatureSet_Classic"/>
+	<NEXTGEN_VERSAL Name="0"/>
+	<Top Name="GPPU"/>
+	<DisableAutoIOBuffers Name="0"/>
+	<OutOfContext Name="0"/>
+	<MacroLevel Name="1"/>
+	<RunGenerated Name="1"/>
+	<HDPlatform Name="0"/>
+	<File Type="VERILOG_STUB" Name="GPPU_stub.v" ModTime="1752882924"/>
+	<File Type="VHDL_STUB" Name="GPPU_stub.vhdl" ModTime="1752882924"/>
+	<File Type="PARAMXML" Name="GPPU_param.xml" ModTime="1752882924"/>
+	<File Type="PARAMXML" Name="GPPU_param.xml" ModTime="1752882924"/>
+	<File Type="XN" Name="GPPU.xn" ModTime="1752882924"/>
+	<File Type="SHAPE" Name="GPPU.shape" ModTime="1752882924"/>
+	<File Type="EDIF" Name="GPPU.edf" ModTime="1752882924"/>
+	<File Type="INCR" Name="GPPU.incr" ModTime="1752882924"/>
+	<File Type="RDA" Name="GPPU.rda" ModTime="1752882924"/>
+	<File Type="JSON_RDA" Name="GPPU_rda.json" ModTime="1752882924"/>
+	<File Type="WDF" Name="GPPU.wdf" ModTime="1752882924"/>
+	<File Type="SYNTH" Name="GPPU.synth" ModTime="1752882924"/>
+</Checkpoint>
+
